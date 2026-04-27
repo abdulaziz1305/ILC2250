@@ -9,6 +9,15 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden}
+
+/* ── Fade-up animation classes ── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.65s cubic-bezier(.22,1,.36,1),transform 0.65s cubic-bezier(.22,1,.36,1)}
+.fade-up.visible{opacity:1;transform:none}
+.fade-up.delay-1{transition-delay:0.1s}
+.fade-up.delay-2{transition-delay:0.2s}
+.fade-up.delay-3{transition-delay:0.3s}
+.fade-up.delay-4{transition-delay:0.4s}
+
 nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid #f0ebe3;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem}
 .nav-logo{font-family:'Fraunces',serif;font-size:1.15rem;color:#c4540a;font-weight:700;text-decoration:none;white-space:nowrap}
 .nav-links{display:flex;gap:0.15rem;align-items:center}
@@ -22,8 +31,10 @@ nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(255,255,255,0.97
 .mobile-menu a{text-decoration:none;color:#555;font-size:0.88rem;font-weight:500;padding:0.6rem 1rem;border-radius:10px;display:block}
 .mobile-menu a:hover{background:#fff3ea;color:#c4540a}
 .mobile-menu.open{display:flex}
+
+/* ── HERO ── */
 .hero{min-height:100vh;background:linear-gradient(160deg,#fff8f2 0%,#fff3e4 40%,#fde8d0 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden}
-.hero-emoji-row{display:flex;gap:1.2rem;font-size:2rem;margin-bottom:2rem;animation:floatRow 3s ease-in-out infinite}
+.hero-emoji-row{display:flex;gap:1.2rem;font-size:2rem;margin-bottom:2rem;animation:floatRow 3s ease-in-out infinite;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Android Emoji",sans-serif}
 @keyframes floatRow{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .hero-tag{background:#fff3ea;color:#c4540a;border:1px solid #f5c09a;border-radius:50px;padding:0.4rem 1.2rem;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;display:inline-block;margin-bottom:1.5rem}
 .hero-title{font-family:'Fraunces',serif;font-size:clamp(2.6rem,6vw,5.2rem);line-height:1.05;color:#1a1a1a;max-width:820px;margin-bottom:1rem}
@@ -41,35 +52,40 @@ nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(255,255,255,0.97
 .hero-blob{position:absolute;border-radius:50%;opacity:0.07;pointer-events:none}
 .blob1{width:600px;height:600px;background:#c4540a;top:-200px;right:-200px}
 .blob2{width:400px;height:400px;background:#f59e0b;bottom:-150px;left:-100px}
+
 .section-label{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c4540a;margin-bottom:0.8rem;display:block;text-align:center}
 .section-title{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:#1a1a1a;line-height:1.2;margin-bottom:1rem;text-align:center}
 .section-title em{color:#c4540a;font-style:italic}
 .section-desc{color:#666;max-width:580px;margin:0 auto 3rem;line-height:1.8;font-size:0.93rem;text-align:center}
+
 .intro-section{padding:6rem 2rem;background:#fff}
 .intro-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
 .icard{background:#fff8f2;border:1px solid #f5dfc9;border-radius:20px;padding:2rem 1.5rem;text-align:center;transition:transform 0.2s}
 .icard:hover{transform:translateY(-5px)}
-.icard-icon{font-size:2.5rem;margin-bottom:1rem;display:block}
+.icard-icon{font-size:2.5rem;margin-bottom:1rem;display:block;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Android Emoji",sans-serif}
 .icard h3{font-family:'Fraunces',serif;font-size:1.05rem;color:#1a1a1a;margin-bottom:0.6rem}
 .icard p{font-size:0.82rem;color:#777;line-height:1.7}
+
 .banner{background:linear-gradient(135deg,#c4540a,#e87722);padding:5rem 2rem;text-align:center;color:white}
 .banner p{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,2rem);max-width:750px;margin:0 auto;line-height:1.6}
 .banner cite{display:block;font-style:normal;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.7;margin-top:1.2rem}
+
 .about-section{padding:6rem 2rem;background:#faf8f5}
 .about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .about-visual{background:linear-gradient(135deg,#fff3ea,#fde8d0);border-radius:24px;padding:3rem;text-align:center;border:1px solid #f5dfc9}
-.about-visual-emoji{font-size:6rem;display:block;margin-bottom:1.5rem;line-height:1}
+.about-visual-emoji{font-size:6rem;display:block;margin-bottom:1.5rem;line-height:1;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Android Emoji",sans-serif}
 .about-visual-text{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:#c4540a;line-height:1.6}
 .about-content h2{font-family:'Fraunces',serif;font-size:2rem;color:#1a1a1a;margin-bottom:1.2rem;line-height:1.3}
 .about-content h2 em{color:#c4540a;font-style:italic}
 .about-content p{color:#666;line-height:1.9;font-size:0.92rem;margin-bottom:1rem}
 .about-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
 .tag{background:#fff3ea;color:#c4540a;border:1px solid #f5c09a;border-radius:50px;padding:0.32rem 0.9rem;font-size:0.76rem;font-weight:500}
+
 .team-section{padding:6rem 2rem;background:#fff}
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;max-width:1160px;margin:0 auto}
 .team-card{border:1px solid #f0ebe3;border-radius:20px;overflow:hidden;transition:all 0.25s;background:#fff}
 .team-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(196,84,10,0.12)}
-.team-photo{height:150px;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.team-photo{height:150px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Android Emoji",sans-serif}
 .tc1{background:linear-gradient(135deg,#fff3ea,#fde0c0)}
 .tc2{background:linear-gradient(135deg,#e8f5e9,#c8e6c9)}
 .tc3{background:linear-gradient(135deg,#fff8e1,#ffe082)}
@@ -81,39 +97,151 @@ nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(255,255,255,0.97
 .team-name{font-family:'Fraunces',serif;font-size:1rem;color:#1a1a1a;margin-bottom:0.22rem}
 .team-role{font-size:0.7rem;color:#c4540a;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:0.6rem}
 .team-bio{font-size:0.78rem;color:#777;line-height:1.6}
+
+/* ── REFLECTIONS ── */
 .reflect-section{padding:6rem 2rem;background:#1a1a1a}
 .reflect-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:1160px;margin:0 auto}
 .rcard{background:#242424;border:1px solid #333;border-radius:20px;padding:2rem;transition:background 0.2s}
 .rcard:hover{background:#2a2a2a}
 .rmember{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem}
-.ravatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-.av1{background:#3a1f0a}.av2{background:#0a2a1a}.av3{background:#2a2200}.av4{background:#2a0a1a}.av5{background:#0a1a2a}.av6{background:#1a0a2a}.av7{background:#0a2a2a}
+
+/* ── Avatar: photo upload circle ── */
+.ravatar{
+  width:120px;height:120px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.6rem;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Android Emoji",sans-serif;
+  flex-shrink:0;overflow:hidden;position:relative;cursor:pointer;
+  border:2.5px dashed #c4540a;transition:border-color 0.2s,box-shadow 0.2s;
+}
+.ravatar:hover{border-color:#e06020;box-shadow:0 0 0 4px rgba(196,84,10,0.15)}
+.ravatar img{
+  width:100%;height:100%;object-fit:cover;border-radius:50%;
+  display:block;position:absolute;top:0;left:0;z-index:1;
+}
+.ravatar .upload-overlay{
+  position:absolute;inset:0;background:rgba(196,84,10,0.8);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity 0.2s;font-size:1.2rem;color:#fff;z-index:2;
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
+}
+.ravatar:hover .upload-overlay{opacity:1}
+.ravatar input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;z-index:3}
+.ravatar.has-photo{border-style:solid;border-color:#c4540a}
+.av1{background:#3a1f0a}.av2{background:#0a2a1a}.av3{background:#2a2200}
+.av4{background:#2a0a1a}.av5{background:#0a1a2a}.av6{background:#1a0a2a}.av7{background:#0a2a2a}
+.upload-hint{font-size:0.6rem;color:#c4540a;opacity:0.8;margin-top:0.2rem;text-align:center;line-height:1.3}
+
 .rname{font-family:'Fraunces',serif;font-size:0.98rem;color:#fff}
 .rrole{font-size:0.68rem;color:#c4540a;text-transform:uppercase;letter-spacing:0.08em;font-weight:600}
 .rsec-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.14em;color:#c4540a;margin-bottom:0.4rem;font-weight:700}
 .rsec-text{font-size:0.83rem;color:#aaa;line-height:1.75;margin-bottom:1.1rem}
 .motto{background:#2f1a0a;border-left:3px solid #c4540a;padding:0.9rem 1.1rem;border-radius:0 10px 10px 0;font-family:'Fraunces',serif;font-style:italic;font-size:0.95rem;color:#f5c09a;margin-bottom:1.1rem}
+
+/* ── VIDEO SECTION — exactly 2 slots ── */
+.video-section{padding:6rem 2rem;background:#111}
+.video-inner{max-width:900px;margin:0 auto}
+.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:0}
+.video-slot{background:#1e1e1e;border:2px dashed #3a3a3a;border-radius:20px;overflow:hidden;transition:border-color 0.2s;position:relative}
+.video-slot:hover{border-color:#c4540a}
+.video-slot.has-video{border-style:solid;border-color:#333}
+.video-placeholder{
+  aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:0.8rem;cursor:pointer;padding:1.5rem;
+  background:linear-gradient(135deg,#1e1e1e,#2a1a0a);
+}
+.video-placeholder .vicon{font-size:2.8rem;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Android Emoji",sans-serif;opacity:0.7}
+.video-placeholder p{font-size:0.8rem;color:#666;text-align:center;line-height:1.5}
+.video-placeholder span{font-size:0.72rem;color:#c4540a;font-weight:600}
+.video-slot input[type=file]{position:absolute;top:0;left:0;width:100%;height:55%;opacity:0;cursor:pointer;z-index:2}
+.video-slot video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.video-slot .video-remove{
+  position:absolute;top:0.6rem;right:0.6rem;background:rgba(196,84,10,0.9);
+  color:#fff;border:none;border-radius:50%;width:28px;height:28px;
+  cursor:pointer;font-size:0.85rem;display:none;align-items:center;justify-content:center;line-height:1;
+}
+.video-slot.has-video .video-remove{display:flex}
+.video-label-row{padding:0.9rem 1.2rem 0;background:#1a1a1a;border-top:1px solid #2a2a2a}
+.video-label-row input{
+  background:transparent;border:none;border-bottom:1px solid #333;
+  color:#ccc;font-size:0.82rem;width:100%;padding:0.3rem 0;outline:none;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.video-label-row input::placeholder{color:#444}
+.video-label-row input:focus{border-bottom-color:#c4540a}
+.video-url-row{padding:0.7rem 1.2rem 1rem;background:#1a1a1a;display:flex;gap:0.5rem}
+.video-url-row input{
+  background:#252525;border:1px solid #333;border-radius:8px;
+  color:#ccc;font-size:0.75rem;flex:1;padding:0.45rem 0.7rem;outline:none;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.video-url-row input::placeholder{color:#444}
+.video-url-row input:focus{border-color:#c4540a}
+.video-url-row button{
+  background:#c4540a;border:none;border-radius:8px;color:#fff;
+  font-size:0.72rem;font-weight:600;padding:0.45rem 0.85rem;cursor:pointer;
+  white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;
+}
+.video-url-row button:hover{background:#e06020}
+.video-slot iframe{width:100%;aspect-ratio:16/9;border:none;display:block}
+
+/* ── STATS with counter animation ── */
 .stats-section{background:#c4540a;padding:4rem 2rem}
 .stats-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
-.stat-big{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:900;color:#fff;display:block}
+.stat-big{
+  font-family:'Fraunces',serif;font-size:2.8rem;font-weight:900;color:#fff;display:block;
+  transition:transform 0.3s;
+}
+.stat-big.pop{transform:scale(1.18)}
 .stat-small{font-size:0.76rem;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem}
-.insights-section{padding:6rem 2rem;background:#fff8f2}
+
+.insights-section{
+  padding:6rem 2rem;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+             url('photo_2026-04-28_03-04-10.jpg') center/cover no-repeat fixed;
+}
+.insights-section .section-label{color:#f5c09a}
+.insights-section .section-title{color:#fff}
+.insights-section .section-desc{color:#ccc}
+.insights-section .insight-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(10px)}
+.insights-section .ins-num{color:rgba(245,192,154,0.4)}
+.insights-section .ins-title{color:#fff}
+.insights-section .ins-text{color:#ccc}
 .insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;max-width:1100px;margin:0 auto}
 .insight-card{background:#fff;border:1px solid #f0ebe3;border-radius:20px;padding:2rem;transition:all 0.2s}
 .insight-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.08)}
 .ins-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;color:#f5dfc9;display:block;margin-bottom:0.8rem}
 .ins-title{font-family:'Fraunces',serif;font-size:1rem;color:#1a1a1a;margin-bottom:0.5rem}
 .ins-text{font-size:0.82rem;color:#777;line-height:1.75}
-.global-section{padding:6rem 2rem;background:#fff}
+
+.global-section{
+  padding:6rem 2rem;
+  background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+             url('photo_2026-04-28_04-32-58.jpg') center/cover no-repeat fixed;
+}
+.global-section .section-label{color:#f5c09a}
+.global-section .section-title{color:#fff}
+.global-section .section-title em{color:#f5c09a}
+.global-section .section-desc{color:#ccc}
+.global-section .gcard{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(12px)}
+.global-section .gcard-top{border-bottom:1px solid rgba(255,255,255,0.1)}
+.global-section .gsub{color:#aaa}
+.global-section .gcard-body p{color:#ccc}
 .global-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1100px;margin:0 auto}
 .gcard{border:1px solid #f0ebe3;border-radius:20px;overflow:hidden;transition:transform 0.2s;background:#fff}
 .gcard:hover{transform:translateY(-4px)}
 .gcard-top{padding:1.6rem 1.6rem 1rem;border-bottom:1px solid #f0ebe3;display:flex;align-items:center;gap:1rem}
-.gflag{font-size:1.8rem}
+.gflag{
+  width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.78rem;font-weight:700;color:#fff;flex-shrink:0;
+  font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:0.05em;
+}
+
 .gname{font-family:'Fraunces',serif;font-size:1rem;color:#1a1a1a}
 .gsub{font-size:0.7rem;color:#888}
 .gcard-body{padding:1.3rem 1.6rem}
 .gcard-body p{font-size:0.82rem;color:#666;line-height:1.8}
+
 .kb-section{padding:6rem 2rem;background:#faf8f5}
 .kb-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem}
 .kb-tab{padding:0.55rem 1.3rem;border-radius:50px;border:1.5px solid #f0ebe3;background:#fff;font-size:0.78rem;font-weight:600;cursor:pointer;color:#888;transition:all 0.2s}
@@ -133,6 +261,7 @@ nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(255,255,255,0.97
 .kb-scard li{font-size:0.8rem;color:#666;padding:0.32rem 0;border-bottom:1px solid #f9f5f0;display:flex;gap:0.5rem}
 .kb-scard li::before{content:'›';color:#c4540a;flex-shrink:0}
 .kb-scard li:last-child{border-bottom:none}
+
 .conclusion-section{padding:6rem 2rem;background:#1a1a1a}
 .findings{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:900px;margin:0 auto 3rem}
 .finding{background:#242424;border:1px solid #333;border-radius:16px;padding:1.6rem;display:flex;gap:1.1rem}
@@ -142,16 +271,19 @@ nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(255,255,255,0.97
 .future-box{background:#2f1a0a;border:1px solid #5a2a10;border-radius:20px;padding:2.5rem;max-width:900px;margin:0 auto}
 .future-box h3{font-family:'Fraunces',serif;font-size:1.35rem;color:#f5c09a;margin-bottom:1rem}
 .future-box p{font-size:0.88rem;color:#999;line-height:1.9;margin-bottom:1rem}
+
 .ref-section{padding:5rem 2rem;background:#fff}
 .ref-list{max-width:780px;margin:0 auto}
 .ref-item{font-size:0.83rem;color:#666;line-height:1.8;padding:0.9rem 0;border-bottom:1px solid #f5f0eb;padding-left:1.8rem;text-indent:-1.8rem}
+
 footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px solid #333}
 .footer-logo{font-family:'Fraunces',serif;font-size:1.4rem;color:#c4540a;margin-bottom:0.5rem}
 .footer-sub{font-size:0.76rem;color:#555;letter-spacing:0.04em}
+
 @media(max-width:1050px){.team-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:800px){
   .intro-cards,.global-grid,.insights-grid,.stats-inner,.findings{grid-template-columns:1fr 1fr}
-  .about-inner,.reflect-grid,.kb-panel.active{grid-template-columns:1fr}
+  .about-inner,.reflect-grid,.kb-panel.active,.video-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:repeat(2,1fr)}
   .nav-links{display:none}
   .hamburger{display:flex}
@@ -162,7 +294,7 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
 <body>
 
 <nav>
-  <a href="#home" class="nav-logo">🏠 Home & Heart</a>
+  <a href="#home" class="nav-logo">&#127968; Home &amp; Heart</a>
   <div class="nav-links">
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -177,195 +309,392 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
   <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#home" onclick="closeMenu()">🏠 Home</a>
-  <a href="#about" onclick="closeMenu()">📖 About</a>
-  <a href="#team" onclick="closeMenu()">👥 Our Team</a>
-  <a href="#reflections" onclick="closeMenu()">💬 Reflections</a>
-  <a href="#insights" onclick="closeMenu()">🌟 Insights</a>
-  <a href="#knowledge" onclick="closeMenu()">🔬 Research</a>
-  <a href="#global" onclick="closeMenu()">🌍 Global</a>
-  <a href="#conclusion" onclick="closeMenu()">✅ Conclusion</a>
-  <a href="#references" onclick="closeMenu()">📚 References</a>
+  <a href="#home" onclick="closeMenu()">&#127968; Home</a>
+  <a href="#about" onclick="closeMenu()">&#128214; About</a>
+  <a href="#team" onclick="closeMenu()">&#128101; Our Team</a>
+  <a href="#reflections" onclick="closeMenu()">&#128172; Reflections</a>
+  <a href="#insights" onclick="closeMenu()">&#127775; Insights</a>
+  <a href="#knowledge" onclick="closeMenu()">&#128300; Research</a>
+  <a href="#global" onclick="closeMenu()">&#127757; Global</a>
+  <a href="#conclusion" onclick="closeMenu()">&#9989; Conclusion</a>
+  <a href="#references" onclick="closeMenu()">&#128218; References</a>
 </div>
 
+<!-- HERO -->
 <section id="home">
   <div class="hero">
     <div class="hero-blob blob1"></div>
     <div class="hero-blob blob2"></div>
-    <div class="hero-emoji-row">🍲 🥘 🫕 🥗 🍜 🫙 🧆 🥟</div>
-    <div class="hero-tag">Food · Language · Identity</div>
-    <h1 class="hero-title">Home Cooking, Culture<br>& <span>Belonging</span> in<br>Immigrant Families</h1>
-    <p class="hero-subtitle">Every dish cooked far from home carries a story — a language, a memory, an identity. This project explores how immigrant families use food to stay connected to who they are.</p>
-    <div class="hero-cta">
+    <div class="hero-emoji-row">&#127858; &#129368; &#129365; &#129367; &#127836; </div>
+    <div class="hero-tag fade-up">Food &middot; Language &middot; Identity</div>
+    <h1 class="hero-title fade-up delay-1">Home Cooking, Culture<br>&amp; <span>Belonging</span> in<br>Immigrant Families</h1>
+    <p class="hero-subtitle fade-up delay-2">Every dish cooked far from home carries a story &mdash; a language, a memory, an identity. This project explores how immigrant families use food to stay connected to who they are.</p>
+    <div class="hero-cta fade-up delay-3">
       <a href="#about" class="btn-orange">Start the Journey</a>
       <a href="#insights" class="btn-outline">See Insights</a>
     </div>
-    <div class="hero-stats">
+    <div class="hero-stats fade-up delay-4">
       <div class="hero-stat"><span class="stat-num">7</span><span class="stat-label">Team Members</span></div>
       <div class="hero-stat"><span class="stat-num">6+</span><span class="stat-label">Countries Explored</span></div>
       <div class="hero-stat"><span class="stat-num">15+</span><span class="stat-label">Scholarly Sources</span></div>
-      <div class="hero-stat"><span class="stat-num">∞</span><span class="stat-label">Meals Full of Memory</span></div>
+      <div class="hero-stat"><span class="stat-num">&#8734;</span><span class="stat-label">Meals Full of Memory</span></div>
     </div>
   </div>
 </section>
 
+<!-- INTRO -->
 <section class="intro-section">
-  <span class="section-label">The Heart of Our Project</span>
-  <h2 class="section-title">Why Food is Never <em>Just Food</em></h2>
-  <p class="section-desc">For immigrant families, cooking at home is about much more than eating. It is how they keep their culture alive, pass on their language, and find belonging in a new place.</p>
+  <span class="section-label fade-up">The Heart of Our Project</span>
+  <h2 class="section-title fade-up delay-1">Why Food is Never <em>Just Food</em></h2>
+  <p class="section-desc fade-up delay-2">For immigrant families, cooking at home is about much more than eating. It is how they keep their culture alive, pass on their language, and find belonging in a new place.</p>
   <div class="intro-cards">
-    <div class="icard"><span class="icard-icon">🗣️</span><h3>Language Lives Here</h3><p>Recipe names and cooking words in a heritage language are often the last things families forget — the kitchen keeps language alive.</p></div>
-    <div class="icard"><span class="icard-icon">🧠</span><h3>Memory in Every Bite</h3><p>A single smell or taste can bring back a whole world — people, places, and feelings from a life lived somewhere else.</p></div>
-    <div class="icard"><span class="icard-icon">🤝</span><h3>Building Belonging</h3><p>Cooking and sharing food from your homeland is a way of saying "this is who we are" — even thousands of miles away.</p></div>
-    <div class="icard"><span class="icard-icon">🔄</span><h3>Change & Creativity</h3><p>Immigrant cooks don't just preserve food — they adapt it, mix it, and create something new that reflects their whole life story.</p></div>
+    <div class="icard fade-up"><span class="icard-icon">&#128483;&#65039;</span><h3>Language Lives Here</h3><p>Recipe names and cooking words in a heritage language are often the last things families forget — the kitchen keeps language alive.</p></div>
+    <div class="icard fade-up delay-1"><span class="icard-icon">&#129504;</span><h3>Memory in Every Bite</h3><p>A single smell or taste can bring back a whole world — people, places, and feelings from a life lived somewhere else.</p></div>
+    <div class="icard fade-up delay-2"><span class="icard-icon">&#129309;</span><h3>Building Belonging</h3><p>Cooking and sharing food from your homeland is a way of saying &ldquo;this is who we are&rdquo; — even thousands of miles away.</p></div>
+    <div class="icard fade-up delay-3"><span class="icard-icon">&#128260;</span><h3>Change &amp; Creativity</h3><p>Immigrant cooks don&rsquo;t just preserve food — they adapt it, mix it, and create something new that reflects their whole life story.</p></div>
   </div>
 </section>
 
 <div class="banner">
-  <p>"Every dish cooked far from home is a letter written back — full of love, longing, and everything that cannot be translated."</p>
-  <cite>— Home & Heart Team · Food, Language & Identity</cite>
+  <p class="fade-up">&ldquo;Every dish cooked far from home is a letter written back &mdash; full of love, longing, and everything that cannot be translated.&rdquo;</p>
+  <cite class="fade-up delay-1">&mdash; Home &amp; Heart Team &middot; Food, Language &amp; Identity</cite>
 </div>
 
+<!-- ABOUT -->
 <section id="about" class="about-section">
   <div class="about-inner">
-    <div class="about-visual">
-      <span class="about-visual-emoji">🫕</span>
-      <div class="about-visual-text">"The kitchen is where our culture survives, one meal at a time."</div>
+    <div class="about-visual fade-up">
+      <span class="about-visual-emoji"><img src="Без названия.jpg" alt=""></span>
+      <div class="about-visual-text">&ldquo;The kitchen is where our culture survives, one meal at a time.&rdquo;</div>
     </div>
-    <div class="about-content">
+    <div class="about-content fade-up delay-2">
       <h2>The <em>Immigrant Kitchen</em> as a Cultural Space</h2>
-      <p>When families move to a new country, they bring their recipes with them. These are not just instructions for cooking — they are pieces of identity. They carry the names of ingredients in a language only the family speaks, the smell of a grandmother's kitchen, and the feeling of home.</p>
+      <p>When families move to a new country, they bring their recipes with them. These are not just instructions for cooking — they are pieces of identity. They carry the names of ingredients in a language only the family speaks, the smell of a grandmother&rsquo;s kitchen, and the feeling of home.</p>
       <p>This project looks at how immigrant families use home cooking to protect their culture, talk across generations, and find their place in a world that does not always welcome them. We explore how food connects to language, identity, power, and globalization — the big themes of our course.</p>
       <p>We believe the immigrant home kitchen is not a museum. It is a living, changing, creative space where people figure out who they are — every single day.</p>
       <div class="about-tags">
-        <span class="tag">🍽 Foodways</span>
-        <span class="tag">🗣 Heritage Language</span>
-        <span class="tag">🌍 Diaspora</span>
-        <span class="tag">👩 Gender & Labor</span>
-        <span class="tag">🔄 Cultural Identity</span>
-        <span class="tag">📱 Digital Culture</span>
+        <span class="tag">&#127869; Foodways</span>
+        <span class="tag">&#128483; Heritage Language</span>
+        <span class="tag">&#127757; Diaspora</span>
+        <span class="tag">&#128105; Gender &amp; Labor</span>
+        <span class="tag">&#128260; Cultural Identity</span>
+        <span class="tag">&#128247; Digital Culture</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- TEAM -->
 <section id="team" class="team-section">
-  <span class="section-label">Our Team</span>
-  <h2 class="section-title">Meet the <em>Researchers</em></h2>
-  <p class="section-desc">Seven students, one shared mission — exploring how food, language, and identity connect in immigrant families around the world.</p>
+  <span class="section-label fade-up">Our Team</span>
+  <h2 class="section-title fade-up delay-1">Meet the <em>Researchers</em></h2>
+  <p class="section-desc fade-up delay-2">Seven students, one shared mission — exploring how food, language, and identity connect in immigrant families around the world.</p>
   <div class="team-grid">
-    <div class="team-card"><div class="team-photo tc1">🔬</div><div class="team-info"><div class="team-name">Ismoil Turgunboev</div><div class="team-role">Researcher</div><p class="team-bio">Explores how food carries oral history and how marginalized communities used cooking as a tool of resilience, survival, and resistance.</p></div></div>
-    <div class="team-card"><div class="team-photo tc2">✍️</div><div class="team-info"><div class="team-name">Dilmuhammad Rustamov</div><div class="team-role">Researcher · Content Writer</div><p class="team-bio">Investigates how food is embedded in power and language, and how globalization is both preserving and eroding local food identities.</p></div></div>
-    <div class="team-card"><div class="team-photo tc3">🎨</div><div class="team-info"><div class="team-name">Zulfizar Xolboyeva</div><div class="team-role">Researcher · Visual Designer</div><p class="team-bio">Shows how every dish carries meaning, history, and social values — and brings the project to life through visual storytelling.</p></div></div>
-    <div class="team-card"><div class="team-photo tc4">📚</div><div class="team-info"><div class="team-name">Sunnat Zoirov</div><div class="team-role">Researcher</div><p class="team-bio">Studies how food connects to personal history and community values, and how language shapes the way people understand what they eat.</p></div></div>
-    <div class="team-card"><div class="team-photo tc5">🌐</div><div class="team-info"><div class="team-name">Otabek Khamroyev</div><div class="team-role">Researcher</div><p class="team-bio">Looks at food as social glue — how shared meals at family gatherings and everyday moments strengthen culture and community bonds.</p></div></div>
-    <div class="team-card"><div class="team-photo tc6">🌸</div><div class="team-info"><div class="team-name">Samira Irgasheva</div><div class="team-role">Researcher</div><p class="team-bio">Explores how gender, religion, and globalization shape food practices — and how these insights can help create more respectful classrooms.</p></div></div>
-    <div class="team-card"><div class="team-photo tc7">💻</div><div class="team-info"><div class="team-name">Abdulaziz Nosirov</div><div class="team-role">Developer</div><p class="team-bio">Built the digital experience for this project and researches how food traditions change when people migrate — yet still keep their meaning.</p></div></div>
+    <div class="team-card fade-up"><div class="team-photo tc1">&#128300;</div><div class="team-info"><div class="team-name">Ismoil Turgunboev</div><div class="team-role">Researcher</div><p class="team-bio">Explores how food carries oral history and how marginalized communities used cooking as a tool of resilience, survival, and resistance.</p></div></div>
+    <div class="team-card fade-up delay-1"><div class="team-photo tc2">&#9997;&#65039;</div><div class="team-info"><div class="team-name">Dilmuhammad Rustamov</div><div class="team-role">Researcher &middot; Content Writer</div><p class="team-bio">Investigates how food is embedded in power and language, and how globalization is both preserving and eroding local food identities.</p></div></div>
+    <div class="team-card fade-up delay-2"><div class="team-photo tc3">&#127800;</div><div class="team-info"><div class="team-name">Zulfizar Xolboyeva</div><div class="team-role">Researcher &middot; Visual Designer</div><p class="team-bio">Shows how every dish carries meaning, history, and social values — and brings the project to life through visual storytelling.</p></div></div>
+    <div class="team-card fade-up delay-3"><div class="team-photo tc4">&#128218;</div><div class="team-info"><div class="team-name">Sunnat Zoirov</div><div class="team-role">Researcher</div><p class="team-bio">Studies how food connects to personal history and community values, and how language shapes the way people understand what they eat.</p></div></div>
+    <div class="team-card fade-up"><div class="team-photo tc5">&#127760;</div><div class="team-info"><div class="team-name">Otabek Khamroyev</div><div class="team-role">Researcher</div><p class="team-bio">Looks at food as social glue — how shared meals at family gatherings and everyday moments strengthen culture and community bonds.</p></div></div>
+    <div class="team-card fade-up delay-1"><div class="team-photo tc6">&#127800;</div><div class="team-info"><div class="team-name">Samira Irgasheva</div><div class="team-role">Researcher</div><p class="team-bio">Explores how gender, religion, and globalization shape food practices — and how these insights can help create more respectful classrooms.</p></div></div>
+    <div class="team-card fade-up delay-2"><div class="team-photo tc7">&#128187;</div><div class="team-info"><div class="team-name">Abdulaziz Nosirov</div><div class="team-role">Developer</div><p class="team-bio">Built the digital experience for this project and researches how food traditions change when people migrate — yet still keep their meaning.</p></div></div>
+    <div class="team-card fade-up"><div class="team-photo tc5">&#127760;</div><div class="team-info"><div class="team-name">Feruzbek Mengdobilov</div><div class="team-role">Researcher</div><p class="team-bio">Food is more than nourishment—it’s identity, culture, and connection.</p></div></div>
+    <div class="team-card fade-up delay-1"><div class="team-photo tc6">&#127800;</div><div class="team-info"><div class="team-name">Rayhona Ergasheva</div><div class="team-role">Researcher</div><p class="team-bio">Food reveals identity, culture, and the stories behind everyday life.</p></div></div>
+    <div class="team-card fade-up delay-2"><div class="team-photo tc7">&#127760;</div><div class="team-info"><div class="team-name">Khumoyun Akbarov</div><div class="team-role">Developer</div><p class="team-bio">Food and language define our identity.</p></div></div>
   </div>
 </section>
 
+<!-- REFLECTIONS -->
 <section id="reflections" class="reflect-section">
   <span class="section-label" style="color:#c4540a">Team Reflections</span>
-  <h2 class="section-title" style="color:#fff;margin-bottom:0.8rem">What We <em>Learned</em></h2>
-  <p class="section-desc" style="color:#888">Each team member shares their personal takeaways from the course — in their own words.</p>
+  <h2 class="section-title fade-up" style="color:#fff;margin-bottom:0.5rem">What We <em>Learned</em></h2>
+  <p class="section-desc fade-up delay-1" style="color:#888">Each team member shares their personal takeaways. Click a photo circle to upload a participant photo — or set the path directly in the code below.</p>
   <div class="reflect-grid">
 
-    <div class="rcard">
-      <div class="rmember"><div class="ravatar av1">🔬</div><div><div class="rname">Ismoil Turgunboev</div><div class="rrole">Researcher</div></div></div>
+    <!-- ─── Ismoil ─── -->
+    <div class="rcard fade-up">
+      <div class="rmember">
+        <div class="ravatar av1" id="av-ismoil" title="Click to upload photo">
+          <span class="avatar-emoji">&#128300;</span>
+          <div class="upload-overlay">&#128247;</div>
+    
+        </div>
+        <div>
+          <div class="rname">Ismoil Turgunboev</div>
+          <div class="rrole">Researcher</div>
+         
+        </div>
+      </div>
       <div class="rsec-label">Key Learning</div>
-      <p class="rsec-text">Going into this class, I honestly just thought of food as fuel. But studying food, culture, and identity totally shifted my perspective. I realized that what's on our plates is actually a living history book. The biggest takeaway for me was seeing how deeply food connects to resilience and personal history. When we learned about how West African culinary traditions survived the Middle Passage, it hit me that recipes were used as oral history — especially when reading and writing were illegal. It's amazing how marginalized communities took discarded, unwanted ingredients and transformed them into cultural delicacies. It's not just about making do; it's about survival and creating joy out of nothing. This course also showed me how food was a tool for resistance, even helping to fund the Civil Rights Movement.</p>
-      <div class="motto">"Food is not only what we eat — it is also who we are."</div>
-      <div class="rsec-label">How I'll Apply This</div>
-      <p class="rsec-text">I will look at every meal as a reflection of where we come from, how we adapt when we migrate, and how we claim our identity and belonging in the world.</p>
+      <p class="rsec-text">Going into this class, I honestly just thought of food as fuel. But studying food, culture, and identity totally shifted my perspective. I realized that what&rsquo;s on our plates is actually a living history book. The biggest takeaway for me was seeing how deeply food connects to resilience and personal history. When we learned about how West African culinary traditions survived the Middle Passage, it hit me that recipes were used as oral history — especially when reading and writing were illegal. It&rsquo;s amazing how marginalized communities took discarded, unwanted ingredients and transformed them into cultural delicacies. It&rsquo;s not just about making do; it&rsquo;s about survival and creating joy out of nothing. This course also showed me how food was a tool for resistance, even helping to fund the Civil Rights Movement.</p>
+      <div class="motto">&ldquo;Food is not only what we eat — it is also who we are.&rdquo;</div>
     </div>
 
-    <div class="rcard">
-      <div class="rmember"><div class="ravatar av2">✍️</div><div><div class="rname">Dilmuhammad Rustamov</div><div class="rrole">Researcher · Content Writer</div></div></div>
+    <!-- ─── Dilmuhammad ─── -->
+    <div class="rcard fade-up delay-1">
+      <div class="rmember">
+        <div class="ravatar av2" id="av-dilmuhammad" title="Click to upload photo">
+          <span class="avatar-emoji">&#9997;&#65039;</span>
+          <div class="upload-overlay">&#128247;</div>
+        </div>
+        <div>
+          <div class="rname">Dilmuhammad Rustamov</div>
+          <div class="rrole">Researcher &middot; Content Writer</div>
+          <div class="upload-hint"></div>
+        </div>
+      </div>
       <div class="rsec-label">Key Learning</div>
       <p class="rsec-text">During this course, I found the extent to which food is embedded in identity, language, and power to be the most striking thing. My first perception was that food was a simple need or at best a cultural symbol. After learning about foodways and globalization, I now understand that food is a potent social and political instrument. The most notable point was that food is not neutral — it embodies inequities and cultural hierarchies. Some cuisines are considered prestigious and global while others are stereotyped and pushed aside. This connects directly to language: the way we talk about food reveals hidden biases. The paradox of globalization — it both connects cultures and erodes local traditions — completely changed my view of global food systems.</p>
-      <div class="motto">"A recipe is a love letter to the future."</div>
-      <div class="rsec-label">How I'll Apply This</div>
-      <p class="rsec-text">I will use food as a lens to analyze power and language — understanding that how we describe food tells us a great deal about how we see people and cultures.</p>
+      <div class="motto">&ldquo;A recipe is a love letter to the future.&rdquo;</div>
+    
     </div>
 
-    <div class="rcard">
-      <div class="rmember"><div class="ravatar av3">🎨</div><div><div class="rname">Zulfizar Xolboyeva</div><div class="rrole">Researcher · Visual Designer</div></div></div>
+    <!-- ─── Zulfizar ─── -->
+    <div class="rcard fade-up">
+      <div class="rmember">
+        <div class="ravatar av3" id="av-zulfizar" title="Click to upload photo">
+          <span class="avatar-emoji">&#127912;</span>
+          <div class="upload-overlay">&#128247;</div>
+        </div>
+        <div>
+          <div class="rname">Zulfizar Xolboyeva</div>
+          <div class="rrole">Researcher &middot; Visual Designer</div>
+          <div class="upload-hint"></div>
+        </div>
+      </div>
       <div class="rsec-label">Key Learning</div>
-      <p class="rsec-text">Throughout this course, I came to realize that food is much more than something we eat — it is deeply connected to culture, language, and identity. Before this class, I mainly saw food as a daily necessity. But learning about food across different cultures showed me that every dish carries meaning, history, and social values. The ingredients people use, the way meals are prepared, and how they are eaten all tell a story about where people come from. Traditional dishes represent a region's climate, agriculture, history, and even religious beliefs. This made me realize how important it is to respect and understand different food practices instead of judging them based on my own background.</p>
-      <div class="motto">"Food is more than nourishment — it is culture, identity, and the story of who we are."</div>
-      <div class="rsec-label">How I'll Apply This</div>
-      <p class="rsec-text">I will approach every culture I encounter with more openness — starting from their food — because food is one of the most honest windows into who people truly are.</p>
+      <p class="rsec-text">Throughout this course, I came to realize that food is much more than something we eat — it is deeply connected to culture, language, and identity. Before this class, I mainly saw food as a daily necessity. But learning about food across different cultures showed me that every dish carries meaning, history, and social values. The ingredients people use, the way meals are prepared, and how they are eaten all tell a story about where people come from. Traditional dishes represent a region&rsquo;s climate, agriculture, history, and even religious beliefs. This made me realize how important it is to respect and understand different food practices instead of judging them based on my own background.</p>
+      <div class="motto">&ldquo;Food is more than nourishment — it is culture, identity, and the story of who we are.&rdquo;</div>
+     
     </div>
 
-    <div class="rcard">
-      <div class="rmember"><div class="ravatar av4">📚</div><div><div class="rname">Sunnat Zoirov</div><div class="rrole">Researcher</div></div></div>
+    <!-- ─── Sunnat ─── -->
+    <div class="rcard fade-up delay-1">
+      <div class="rmember">
+        <div class="ravatar av4" id="av-sunnat" title="Click to upload photo">
+          <span class="avatar-emoji">&#128218;</span>
+          <div class="upload-overlay">&#128247;</div>
+        
+        </div>
+        <div>
+          <div class="rname">Sunnat Zoirov</div>
+          <div class="rrole">Researcher</div>
+          <div class="upload-hint"></div>
+        </div>
+      </div>
       <div class="rsec-label">Key Learning</div>
       <p class="rsec-text">This class helped me see that food is more than just something we eat. It connects to culture, identity, and the way people express themselves. I learned that food can represent personal history, family traditions, and community values. It also showed me how language shapes the way we understand food and how people talk about it. Another important idea was how food changes when people migrate or live in different places, but still keeps its cultural meaning. Overall, this course made me think more deeply about everyday eating and how food can reflect belonging, difference, and identity.</p>
-      <div class="motto">"Food is not just what we eat — it is how we express identity, carry culture, and stay connected across places and generations."</div>
-      <div class="rsec-label">How I'll Apply This</div>
-      <p class="rsec-text">I will pay more attention to what food tells us about the communities I study — seeing it as a mirror of social life, not just a physical need.</p>
+      <div class="motto">&ldquo;Food is not just what we eat — it is how we express identity, carry culture, and stay connected across places and generations.&rdquo;</div>
     </div>
 
-    <div class="rcard">
-      <div class="rmember"><div class="ravatar av5">🌐</div><div><div class="rname">Otabek Khamroyev</div><div class="rrole">Researcher</div></div></div>
+    <!-- ─── Otabek ─── -->
+    <div class="rcard fade-up">
+      <div class="rmember">
+        <div class="ravatar av5" id="av-otabek" title="Click to upload photo">
+          <span class="avatar-emoji">&#127760;</span>
+          <div class="upload-overlay">&#128247;</div>
+    
+        </div>
+        <div>
+          <div class="rname">Otabek Khamroyev</div>
+          <div class="rrole">Researcher</div>
+          <div class="upload-hint"></div>
+        </div>
+      </div>
       <div class="rsec-label">Key Learning</div>
       <p class="rsec-text">The first and most important lesson I got from this course is that food is not merely something we eat — it is far more complex. Food provides a binding force that creates relationships between individuals and strengthens culture and family ties. It can be considered social glue — a phenomenon that helps people connect during family gatherings, festivities, and ordinary mealtimes. This course helped me realize that food is not only about taste and nutrition; it serves as cultural and social identity and a form of human communication that builds community relationships.</p>
-      <div class="motto">"If you eat together, you carry burdens together."</div>
-      <div class="rsec-label">How I'll Apply This</div>
-      <p class="rsec-text">I will think of shared meals not just as a physical act but as a moment of real connection — and use that understanding in how I build relationships in my own life.</p>
+      <div class="motto">&ldquo;If you eat together, you carry burdens together.&rdquo;</div>
     </div>
 
-    <div class="rcard">
-      <div class="rmember"><div class="ravatar av6">🌸</div><div><div class="rname">Samira Irgasheva</div><div class="rrole">Researcher</div></div></div>
+    <!-- ─── Samira ─── -->
+    <div class="rcard fade-up delay-1">
+      <div class="rmember">
+        <div class="ravatar av6" id="av-samira" title="Click to upload photo">
+          <span class="avatar-emoji">&#127800;</span>
+          <div class="upload-overlay">&#128247;</div>
+      
+        </div>
+        <div>
+          <div class="rname">Samira Irgasheva</div>
+          <div class="rrole">Researcher</div>
+          <div class="upload-hint"></div>
+        </div>
+      </div>
       <div class="rsec-label">Key Learning</div>
-      <p class="rsec-text">I really liked this course. It was interesting to see everyday food from a deeper perspective — not just as something normal. The topics about gender, religion, and globalization were the most interesting for me. They made me think more deeply about how food is connected to people's roles, beliefs, and culture. I noticed how food is not only about eating, but also about traditions, identity, and rules in society. The matcha day was especially memorable — learning about its history and preparing it ourselves made the learning very real. As a future teacher, this course helps me understand students better, since everyone comes from a different background and food is a big part of that.</p>
-      <div class="motto">"Food turns everyday life into meaning — connecting culture, identity, and understanding in every experience."</div>
-      <div class="rsec-label">How I'll Apply This</div>
-      <p class="rsec-text">I will use food as a bridge in my future classroom — a way to help students from different backgrounds understand and respect each other.</p>
+      <p class="rsec-text">I really liked this course. It was interesting to see everyday food from a deeper perspective — not just as something normal. The topics about gender, religion, and globalization were the most interesting for me. They made me think more deeply about how food is connected to people&rsquo;s roles, beliefs, and culture. I noticed how food is not only about eating, but also about traditions, identity, and rules in society. The matcha day was especially memorable — learning about its history and preparing it ourselves made the learning very real. As a future teacher, this course helps me understand students better, since everyone comes from a different background and food is a big part of that.</p>
+      <div class="motto">&ldquo;Food turns everyday life into meaning — connecting culture, identity, and understanding in every experience.&rdquo;</div>
+    
     </div>
 
-    <div class="rcard">
-      <div class="rmember"><div class="ravatar av7">💻</div><div><div class="rname">Abdulaziz Nosirov</div><div class="rrole">Developer</div></div></div>
+    <!-- ─── Abdulaziz ─── -->
+    <div class="rcard fade-up">
+      <div class="rmember">
+        <div class="ravatar av7" id="av-abdulaziz" title="Click to upload photo">
+          <span class="avatar-emoji">&#128187;</span>
+          <div class="upload-overlay">&#128247;</div>
+          
+        </div>
+        <div>
+          <div class="rname">Abdulaziz Nosirov</div>
+          <div class="rrole">Developer</div>
+          <div class="upload-hint"></div>
+        </div>
+      </div>
       <div class="rsec-label">Key Learning</div>
       <p class="rsec-text">Before this course, I saw food as just something we eat every day. Now I understand that food is deeply connected to culture, identity, and history. I learned that food can show traditions, beliefs, and where people come from. It can also change when people move, but still keep its meaning. Activities like the matcha day made learning more real and interesting. As a future teacher, this course helped me understand the importance of respecting different backgrounds. Overall, it changed the way I see food and everyday life — I now look at a simple meal and see a whole story behind it.</p>
-      <div class="motto">"Food is more than what we eat."</div>
-      <div class="rsec-label">How I'll Apply This</div>
-      <p class="rsec-text">As a developer and future educator, I will build tools and experiences that help people connect across cultural differences — starting with food as the common ground.</p>
+      <div class="motto">&ldquo;Food is more than what we eat.&rdquo;</div>
+      
     </div>
-
+     <!-- ─── Firuzbek ─── -->
+     <div class="rcard fade-up">
+      <div class="rmember">
+        <div class="ravatar av7" id="av-feruzbek" title="Click to upload photo">
+          <span class="avatar-emoji">&#128187;</span>
+          <div class="upload-overlay">&#128247;</div>
+         
+        </div>
+        <div>
+          <div class="rname">Feruzbek Mengdobilov</div>
+          <div class="rrole">Researcher</div>
+          <div class="upload-hint"></div>
+        </div>
+      </div>
+      <div class="rsec-label">Key Learning</div>
+      <p class="rsec-text">Food, Language, Identity, helped me understand how deeply food is connected to culture and personal identity. I learned that food is not just about nutrition, but also about communication, traditions, and social belonging. The course showed how language shapes the way we talk about food and how it reflects values, history, and cultural differences. One of the most interesting aspects was exploring how food can represent identity in different societies and how globalization influences eating habits. I also found it valuable to reflect on my own cultural background and how food plays a role in my daily life and interactions. Overall, this course broadened my perspective and made me more aware of the cultural and social meanings behind food.</p>
+      <div class="motto">&ldquo;Food is more than nourishment—it’s identity, culture, and connection.&rdquo;</div>
+    </div>
+         <!-- ─── Rayhona ─── -->
+         <div class="rcard fade-up">
+          <div class="rmember">
+            <div class="ravatar av7" id="av-rayhona" title="Click to upload photo">
+              <span class="avatar-emoji">&#128187;</span>
+              <div class="upload-overlay">&#128247;</div>
+              
+            </div>
+            <div>
+              <div class="rname">Rayhona Ergasheva</div>
+              <div class="rrole">Researcher</div>
+              <div class="upload-hint"></div>
+            </div>
+          </div>
+          <div class="rsec-label">Key Learning</div>
+          <p class="rsec-text">I really enjoyed this course because it helped me see everyday food from a deeper perspective. Topics like gender, religion, and globalization showed how food reflects identity, culture, and social roles.
+            The matcha day was especially memorable, as it combined learning with real experience. As a future teacher, the course reminded me to respect students’ diverse backgrounds.
+            Overall, it was simple but meaningful and changed how I view everyday life.</p>
+          <div class="motto">&ldquo;Food reveals identity, culture, and the stories behind everyday life.&rdquo;</div>
+        </div>
+         <!-- ─── Khumoyun ─── -->
+         <div class="rcard fade-up">
+          <div class="rmember">
+            <div class="ravatar av7" id="av-khumoyun" title="Click to upload photo">
+              <span class="avatar-emoji">&#128187;</span>
+              <div class="upload-overlay">&#128247;</div>
+              
+            </div>
+            <div>
+              <div class="rname">Khumoyun Akbarov</div>
+              <div class="rrole">Researcher</div>
+              <div class="upload-hint"></div>
+            </div>
+          </div>
+          <div class="rsec-label">Key Learning</div>
+          <p class="rsec-text">This course helped me understand how identity is shaped by food and language in everyday life. I realized that what we eat and the language we speak reflect our culture, values, and personal history. It also showed me how identity can change when people move or interact with other cultures, making it more dynamic and diverse.</p>
+          <div class="motto">&ldquo;Food and language define our identity.&rdquo;</div>
+        </div>
   </div>
 </section>
 
+<!-- =================== VIDEO SECTION — 2 slots only =================== -->
+<!-- =================== VIDEO SECTION =================== -->
+<section id="videos" class="video-section">
+  <span class="section-label" style="color:#c4540a">&#127909; Our Videos</span>
+  <h2 class="section-title fade-up" style="color:#fff;margin-bottom:0.8rem">Video <em> Presentations</em></h2>
+  <p class="section-desc fade-up delay-1" style="color:#888;margin-bottom:3rem">Watch our video below.</p>
+  <div class="video-inner">
+    <div class="video-grid">
+
+      <div class="video-slot fade-up">
+        <a href="https://youtu.be/lg3kzCpEE4I" target="_blank" style="display:block;position:relative;text-decoration:none">
+          <img src="https://img.youtube.com/vi/lg3kzCpEE4I/maxresdefault.jpg"
+               style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:16px 16px 0 0">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);border-radius:16px 16px 0 0">
+            <svg width="80" height="56" viewBox="0 0 80 56" fill="none">
+              <rect width="80" height="56" rx="12" fill="#FF0000"/>
+              <path d="M32 18L56 28L32 38Z" fill="white"/>
+            </svg>
+          </div>
+        </a>
+        <div style="padding:1rem 1.2rem;background:#1e1e1e;border-radius:0 0 16px 16px">
+          <p style="color:#fff;font-size:0.88rem;font-weight:600;margin-bottom:0.2rem"></p>
+          <p style="color:#888;font-size:0.75rem">Home Cooking, Culture & Belonging</p>
+        </div>
+      </div>
+
+      <!-- <div class="video-slot fade-up">
+     <a href="https://youtu.be/lg3kzCpEE4I" target="_blank" style="display:block;position:relative;text-decoration:none">
+          <img src="https://img.youtube.com/vi/lg3kzCpEE4I/maxresdefault.jpg"
+               style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:16px 16px 0 0">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);border-radius:16px 16px 0 0">
+            <svg width="80" height="56" viewBox="0 0 80 56" fill="none">
+              <rect width="80" height="56" rx="12" fill="#FF0000"/>
+              <path d="M32 18L56 28L32 38Z" fill="white"/>
+            </svg>
+          </div>
+        </a>
+        <div style="padding:1rem 1.2rem;background:#1e1e1e;border-radius:0 0 16px 16px">
+          <p style="color:#fff;font-size:0.88rem;font-weight:600;margin-bottom:0.2rem"></p>
+          <p style="color:#888;font-size:0.75rem">Home Cooking, Culture & Belonging</p>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+</section>
+
+<!-- STATS — animated counters -->
 <div class="stats-section">
   <div class="stats-inner">
-    <div><span class="stat-big">85%</span><span class="stat-small">of families cook home dishes weekly</span></div>
-    <div><span class="stat-big">70%</span><span class="stat-small">pass recipes in heritage language</span></div>
-    <div><span class="stat-big">3×</span><span class="stat-small">more language use in the kitchen</span></div>
-    <div><span class="stat-big">92%</span><span class="stat-small">say food is part of their identity</span></div>
+    <div>
+      <span class="stat-big" data-target="85" data-suffix="%">0%</span>
+      <span class="stat-small">of families cook home dishes weekly</span>
+    </div>
+    <div>
+      <span class="stat-big" data-target="70" data-suffix="%">0%</span>
+      <span class="stat-small">pass recipes in heritage language</span>
+    </div>
+    <div>
+      <span class="stat-big" data-target="3" data-suffix="&#215;">0&#215;</span>
+      <span class="stat-small">more language use in the kitchen</span>
+    </div>
+    <div>
+      <span class="stat-big" data-target="92" data-suffix="%">0%</span>
+      <span class="stat-small">say food is part of their identity</span>
+    </div>
   </div>
 </div>
 
+<!-- INSIGHTS -->
 <section id="insights" class="insights-section">
-  <span class="section-label">🌟 Insights & Discoveries</span>
-  <h2 class="section-title">What the Research <em>Shows</em></h2>
-  <p class="section-desc">These are the key ideas we found — simple truths about how food connects to culture, language, and identity in immigrant families.</p>
+  <span class="section-label fade-up">&#127775; Insights &amp; Discoveries</span>
+  <h2 class="section-title fade-up delay-1">What the Research <em>Shows</em></h2>
+  <p class="section-desc fade-up delay-2">These are the key ideas we found — simple truths about how food connects to culture, language, and identity in immigrant families.</p>
   <div class="insights-grid">
-    <div class="insight-card"><span class="ins-num">01</span><div class="ins-title">The Kitchen is an Archive</div><p class="ins-text">Immigrant home kitchens hold cultural knowledge that exists nowhere else — recipes, words, techniques, and memories that cannot survive in public or commercial spaces.</p></div>
-    <div class="insight-card"><span class="ins-num">02</span><div class="ins-title">Language Lives in Recipes</div><p class="ins-text">Food words in a heritage language are among the last to disappear. Even families who rarely speak their home language will still use it when talking about food and cooking.</p></div>
-    <div class="insight-card"><span class="ins-num">03</span><div class="ins-title">"Authentic" is Political</div><p class="ins-text">Who decides what counts as "real" immigrant food? These decisions always involve power — and often exclude the very people whose food is being judged.</p></div>
-    <div class="insight-card"><span class="ins-num">04</span><div class="ins-title">Women Carry the Burden</div><p class="ins-text">In most families, women are expected to be the keepers of food tradition. This is meaningful work — but it is also invisible, unpaid labor that is rarely recognized.</p></div>
-    <div class="insight-card"><span class="ins-num">05</span><div class="ins-title">The Second Generation Matters</div><p class="ins-text">Children of immigrants live between two worlds in the kitchen. Their choices — what to cook, what to refuse, what to remix — tell us the most about how culture actually changes.</p></div>
-    <div class="insight-card"><span class="ins-num">06</span><div class="ins-title">Food is Resistance</div><p class="ins-text">Cooking your homeland's dishes in a country that doesn't always value your culture can be a powerful, quiet act of self-assertion and survival.</p></div>
-    <div class="insight-card"><span class="ins-num">07</span><div class="ins-title">Globalization Complicates, Not Erases</div><p class="ins-text">Global food trends do not wipe out immigrant cooking — they mix with it and create new forms of hybrid creativity that deserve scholarly attention.</p></div>
-    <div class="insight-card"><span class="ins-num">08</span><div class="ins-title">Social Media is the New Kitchen</div><p class="ins-text">Diaspora communities now share and perform food culture on TikTok and YouTube — a completely new identity space that is still being understood.</p></div>
-    <div class="insight-card"><span class="ins-num">09</span><div class="ins-title">Eating Together Builds Belonging</div><p class="ins-text">Sharing a meal from your homeland with others is one of the most direct ways to make people understand who you are and where you come from.</p></div>
+    <div class="insight-card fade-up"><span class="ins-num">01</span><div class="ins-title">The Kitchen is an Archive</div><p class="ins-text">Immigrant home kitchens hold cultural knowledge that exists nowhere else — recipes, words, techniques, and memories that cannot survive in public or commercial spaces.</p></div>
+    <div class="insight-card fade-up delay-1"><span class="ins-num">02</span><div class="ins-title">Language Lives in Recipes</div><p class="ins-text">Food words in a heritage language are among the last to disappear. Even families who rarely speak their home language will still use it when talking about food and cooking.</p></div>
+    <div class="insight-card fade-up delay-2"><span class="ins-num">03</span><div class="ins-title">&ldquo;Authentic&rdquo; is Political</div><p class="ins-text">Who decides what counts as &ldquo;real&rdquo; immigrant food? These decisions always involve power — and often exclude the very people whose food is being judged.</p></div>
+    <div class="insight-card fade-up"><span class="ins-num">04</span><div class="ins-title">Women Carry the Burden</div><p class="ins-text">In most families, women are expected to be the keepers of food tradition. This is meaningful work — but it is also invisible, unpaid labor that is rarely recognized.</p></div>
+    <div class="insight-card fade-up delay-1"><span class="ins-num">05</span><div class="ins-title">The Second Generation Matters</div><p class="ins-text">Children of immigrants live between two worlds in the kitchen. Their choices — what to cook, what to refuse, what to remix — tell us the most about how culture actually changes.</p></div>
+    <div class="insight-card fade-up delay-2"><span class="ins-num">06</span><div class="ins-title">Food is Resistance</div><p class="ins-text">Cooking your homeland&rsquo;s dishes in a country that doesn&rsquo;t always value your culture can be a powerful, quiet act of self-assertion and survival.</p></div>
+    <div class="insight-card fade-up"><span class="ins-num">07</span><div class="ins-title">Globalization Complicates, Not Erases</div><p class="ins-text">Global food trends do not wipe out immigrant cooking — they mix with it and create new forms of hybrid creativity that deserve scholarly attention.</p></div>
+    <div class="insight-card fade-up delay-1"><span class="ins-num">08</span><div class="ins-title">Social Media is the New Kitchen</div><p class="ins-text">Diaspora communities now share and perform food culture on TikTok and YouTube — a completely new identity space that is still being understood.</p></div>
+    <div class="insight-card fade-up delay-2"><span class="ins-num">09</span><div class="ins-title">Eating Together Builds Belonging</div><p class="ins-text">Sharing a meal from your homeland with others is one of the most direct ways to make people understand who you are and where you come from.</p></div>
   </div>
 </section>
 
+<!-- KNOWLEDGE BASE -->
 <section id="knowledge" class="kb-section">
-  <span class="section-label">Part C — Research</span>
-  <h2 class="section-title">The Research <em>Knowledge Base</em></h2>
-  <p class="section-desc">A deep dive into the scholarship — from historical roots to present-day debates. Click a tab to explore each section.</p>
+  <span class="section-label fade-up">Part C &mdash; Research</span>
+  <h2 class="section-title fade-up delay-1">The Research <em>Knowledge Base</em></h2>
+  <p class="section-desc fade-up delay-2">A deep dive into the scholarship — from historical roots to present-day debates. Click a tab to explore each section.</p>
   <div class="kb-tabs">
     <button class="kb-tab active" onclick="showKB('intro',this)">Introduction</button>
     <button class="kb-tab" onclick="showKB('history',this)">History</button>
@@ -378,10 +707,10 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
     <div class="kb-panel active" id="kp-intro">
       <div class="kb-main">
         <h3>What Is This Research About?</h3>
-        <p>This project studies home cooking in immigrant and diaspora families — not just what is cooked, but the whole world around it: the stories told in kitchens, the names of dishes in languages children may not speak, the fights between generations about what "real" food is, and the deep emotional weight that a simple dish can carry.</p>
+        <p>This project studies home cooking in immigrant and diaspora families — not just what is cooked, but the whole world around it: the stories told in kitchens, the names of dishes in languages children may not speak, the fights between generations about what &ldquo;real&rdquo; food is, and the deep emotional weight that a simple dish can carry.</p>
         <p>Food and language are more connected than most people realize. When a family cooks a dish from their homeland, they are also practicing a language — using words for spices, techniques, and flavors that may not have exact translations. These kitchen words are often the last pieces of a heritage language to survive.</p>
         <p>For immigrant families, the home kitchen is one of the most important spaces where they decide who they are. It is where culture is taught, argued about, and kept alive — or quietly let go. Our research takes this seriously, drawing on scholars from linguistics, anthropology, sociology, and food studies.</p>
-        <div class="kb-cite">De Certeau, M. (1984). <em>The Practice of Everyday Life.</em> | Fischler, C. (1988). Food, self and identity. <em>Social Science Information, 27</em>(2), 275–292.</div>
+        <div class="kb-cite">De Certeau, M. (1984). <em>The Practice of Everyday Life.</em> | Fischler, C. (1988). Food, self and identity. <em>Social Science Information, 27</em>(2), 275&ndash;292.</div>
       </div>
       <div class="kb-sidebar">
         <div class="kb-scard"><h4>Core Ideas</h4><ul><li>Food as cultural text</li><li>Kitchen as identity space</li><li>Heritage language in food</li><li>Belonging through cooking</li><li>Authenticity as a debate</li><li>Inter-generational conflict</li></ul></div>
@@ -391,28 +720,28 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
     <div class="kb-panel" id="kp-history">
       <div class="kb-main">
         <h3>How Did This Topic Develop?</h3>
-        <p>The serious study of immigrant food and identity is mostly a product of the last 40 years. The big shift came when scholar Arjun Appadurai (1988) introduced the idea of "gastro-politics" — the idea that food is always connected to power. Debates about what counts as "real" food are really debates about who belongs and who doesn't.</p>
-        <p>In the 1950s–1970s, waves of labor migrants moved to Western Europe and North America. These communities cooked their home food in private while eating the host country's food in public. Over time, their private food cultures became visible — and commercially valuable — to the wider society.</p>
-        <p>Donna Gabaccia's important 1998 book <em>We Are What We Eat</em> showed how immigrant food in America was first mocked, then romanticized, then commercialized — while the actual families behind it were still facing discrimination. By the 2000s, researchers like Krishnendu Ray started looking at the home kitchen specifically, finding it full of emotional depth and cultural creativity.</p>
-        <div class="kb-cite">Appadurai, A. (1988). How to make a national cuisine. <em>Comparative Studies in Society and History, 30</em>(1), 3–24. | Gabaccia, D. (1998). <em>We Are What We Eat.</em> Harvard University Press.</div>
+        <p>The serious study of immigrant food and identity is mostly a product of the last 40 years. The big shift came when scholar Arjun Appadurai (1988) introduced the idea of &ldquo;gastro-politics&rdquo; — the idea that food is always connected to power. Debates about what counts as &ldquo;real&rdquo; food are really debates about who belongs and who doesn&rsquo;t.</p>
+        <p>In the 1950s&ndash;1970s, waves of labor migrants moved to Western Europe and North America. These communities cooked their home food in private while eating the host country&rsquo;s food in public. Over time, their private food cultures became visible — and commercially valuable — to the wider society.</p>
+        <p>Donna Gabaccia&rsquo;s important 1998 book <em>We Are What We Eat</em> showed how immigrant food in America was first mocked, then romanticized, then commercialized — while the actual families behind it were still facing discrimination. By the 2000s, researchers like Krishnendu Ray started looking at the home kitchen specifically, finding it full of emotional depth and cultural creativity.</p>
+        <div class="kb-cite">Appadurai, A. (1988). How to make a national cuisine. <em>Comparative Studies in Society and History, 30</em>(1), 3&ndash;24. | Gabaccia, D. (1998). <em>We Are What We Eat.</em> Harvard University Press.</div>
       </div>
       <div class="kb-sidebar">
         <div class="kb-scard"><h4>Key Scholars</h4><ul><li>Arjun Appadurai (1988)</li><li>Donna Gabaccia (1998)</li><li>Krishnendu Ray (2004)</li><li>Anita Mannur (2010)</li><li>bell hooks (1992)</li><li>Michel De Certeau (1984)</li></ul></div>
-        <div class="kb-scard"><h4>Timeline</h4><ul><li>1950s–70s: Mass labor migrations</li><li>1980s: Gastro-politics coined</li><li>1990s: Ethnic restaurant boom</li><li>2000s: Home kitchen research</li><li>2010s: Digital food identity</li><li>2020s: Post-pandemic revival</li></ul></div>
+        <div class="kb-scard"><h4>Timeline</h4><ul><li>1950s&ndash;70s: Mass labor migrations</li><li>1980s: Gastro-politics coined</li><li>1990s: Ethnic restaurant boom</li><li>2000s: Home kitchen research</li><li>2010s: Digital food identity</li><li>2020s: Post-pandemic revival</li></ul></div>
       </div>
     </div>
     <div class="kb-panel" id="kp-context">
       <div class="kb-main">
         <h3>The Social and Political Side</h3>
         <p><strong>Class:</strong> Working-class immigrant food is often seen as strange at first — then suddenly becomes fashionable and desirable. The family who cooked it rarely benefits from this transformation. This is cultural capital in action: the value attached to food shifts depending on who is doing it and who is watching.</p>
-        <p><strong>Gender:</strong> In most immigrant communities, women do most of the work of keeping food traditions alive. This is real labor — invisible and unpaid. Marjorie DeVault (1991) called this "feeding the family" — a form of care work that structures all of family life.</p>
-        <p><strong>Race and Power:</strong> Not all immigrant food is treated equally. European cuisines became "mainstream" far faster than Asian, African, or Latin American cuisines. These differences map directly onto racial hierarchies. The same dish can be "exotic" when made by an immigrant family and "trendy" when served in someone else's restaurant.</p>
+        <p><strong>Gender:</strong> In most immigrant communities, women do most of the work of keeping food traditions alive. This is real labor — invisible and unpaid. Marjorie DeVault (1991) called this &ldquo;feeding the family&rdquo; — a form of care work that structures all of family life.</p>
+        <p><strong>Race and Power:</strong> Not all immigrant food is treated equally. European cuisines became &ldquo;mainstream&rdquo; far faster than Asian, African, or Latin American cuisines. These differences map directly onto racial hierarchies. The same dish can be &ldquo;exotic&rdquo; when made by an immigrant family and &ldquo;trendy&rdquo; when served in someone else&rsquo;s restaurant.</p>
         <p><strong>Language:</strong> The kitchen is one of the strongest places for heritage language survival. Food vocabulary is kept in the original language long after other parts of daily life have switched. When these words disappear, something real and irreplaceable is lost.</p>
         <div class="kb-cite">Bourdieu, P. (1984). <em>Distinction.</em> Harvard University Press. | DeVault, M. (1991). <em>Feeding the Family.</em> University of Chicago Press.</div>
       </div>
       <div class="kb-sidebar">
-        <div class="kb-scard"><h4>Key Issues</h4><ul><li>Gendered food labor</li><li>Racial food hierarchies</li><li>Class & cultural capital</li><li>Language survival in kitchens</li><li>Pressure to assimilate</li><li>Second-gen conflict</li></ul></div>
-        <div class="kb-scard"><h4>Theoretical Lenses</h4><ul><li>Critical race theory</li><li>Feminist food studies</li><li>Bourdieu's cultural capital</li><li>Postcolonial theory</li><li>Heritage language studies</li></ul></div>
+        <div class="kb-scard"><h4>Key Issues</h4><ul><li>Gendered food labor</li><li>Racial food hierarchies</li><li>Class &amp; cultural capital</li><li>Language survival in kitchens</li><li>Pressure to assimilate</li><li>Second-gen conflict</li></ul></div>
+        <div class="kb-scard"><h4>Theoretical Lenses</h4><ul><li>Critical race theory</li><li>Feminist food studies</li><li>Bourdieu&rsquo;s cultural capital</li><li>Postcolonial theory</li><li>Heritage language studies</li></ul></div>
       </div>
     </div>
     <div class="kb-panel" id="kp-gap">
@@ -425,7 +754,7 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
         <div class="kb-cite">Mannur, A. (2010). <em>Culinary Fictions.</em> Temple University Press. | Sutton, D. (2001). <em>Remembrance of Repasts.</em> Berg Publishers.</div>
       </div>
       <div class="kb-sidebar">
-        <div class="kb-scard"><h4>Research Gaps</h4><ul><li>Food–language intersection</li><li>2nd/3rd generation stories</li><li>Digital diaspora food media</li><li>Men as immigrant cooks</li><li>Non-Western diaspora contexts</li><li>Recipe as oral literature</li></ul></div>
+        <div class="kb-scard"><h4>Research Gaps</h4><ul><li>Food&ndash;language intersection</li><li>2nd/3rd generation stories</li><li>Digital diaspora food media</li><li>Men as immigrant cooks</li><li>Non-Western diaspora contexts</li><li>Recipe as oral literature</li></ul></div>
         <div class="kb-scard"><h4>Our Contribution</h4><ul><li>Culinary code-switching idea</li><li>Multi-generation comparison</li><li>Language + food combined lens</li><li>Digital ethnography approach</li></ul></div>
       </div>
     </div>
@@ -433,9 +762,9 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
       <div class="kb-main">
         <h3>Where Do We Stand?</h3>
         <p>Our research takes a <em>critical-affirmative</em> approach. We are critical — we do not pretend immigrant home cooking is untouched by power and inequality. But we are also affirmative — we center the creativity and intelligence of immigrant families, not just their struggles.</p>
-        <p>We align with scholars like Stuart Hall (1990) who said cultural identity is never fixed — it is always "in process," always being made and remade. For us, the immigrant kitchen is not a place stuck in the past. It is a creative workshop where people actively figure out who they are right now.</p>
-        <p>We strongly disagree with the idea that immigrant cooking can be "authentic" in a fixed sense. Following Regina Bendix (1997), we see "authenticity" as a word that always serves someone's interests — usually not the immigrant family's. Real food cultures are alive, changing, and mixed. That is a strength, not a loss.</p>
-        <div class="kb-cite">Hall, S. (1990). Cultural identity and diaspora. In <em>Identity: Community, Culture, Difference</em> (pp. 222–237). | Bendix, R. (1997). <em>In Search of Authenticity.</em> University of Wisconsin Press.</div>
+        <p>We align with scholars like Stuart Hall (1990) who said cultural identity is never fixed — it is always &ldquo;in process,&rdquo; always being made and remade. For us, the immigrant kitchen is not a place stuck in the past. It is a creative workshop where people actively figure out who they are right now.</p>
+        <p>We strongly disagree with the idea that immigrant cooking can be &ldquo;authentic&rdquo; in a fixed sense. Following Regina Bendix (1997), we see &ldquo;authenticity&rdquo; as a word that always serves someone&rsquo;s interests — usually not the immigrant family&rsquo;s. Real food cultures are alive, changing, and mixed. That is a strength, not a loss.</p>
+        <div class="kb-cite">Hall, S. (1990). Cultural identity and diaspora. In <em>Identity: Community, Culture, Difference</em> (pp. 222&ndash;237). | Bendix, R. (1997). <em>In Search of Authenticity.</em> University of Wisconsin Press.</div>
       </div>
       <div class="kb-sidebar">
         <div class="kb-scard"><h4>Our Framework</h4><ul><li>Critical-affirmative approach</li><li>Agency-centered analysis</li><li>Culture is always changing</li><li>Authenticity is constructed</li><li>Diaspora is creative space</li></ul></div>
@@ -446,10 +775,10 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
       <div class="kb-main">
         <h3>How Can This Research Help People?</h3>
         <p><strong>Community Recipe Archive:</strong> A digital collection of immigrant family recipes — recorded in the original language, with the stories behind them. This would preserve both food culture and language at the same time.</p>
-        <p><strong>Schools:</strong> Family cooking could be a tool for teaching heritage languages. When children connect language learning to something they love — their family's food — they are far more motivated. Our research could help design curriculum that uses the kitchen as a classroom.</p>
+        <p><strong>Schools:</strong> Family cooking could be a tool for teaching heritage languages. When children connect language learning to something they love — their family&rsquo;s food — they are far more motivated. Our research could help design curriculum that uses the kitchen as a classroom.</p>
         <p><strong>Documentary Series:</strong> Short films about immigrant families in their kitchens — real conversations, real cooking, real stories. This could reach wide audiences and help people understand immigration in a human, personal way.</p>
         <p><strong>Policy:</strong> Our findings on the invisible labor of immigrant women in the kitchen have real policy implications. School lunch programs, community kitchen access, and social welfare programs should take immigrant food cultures seriously — not as a curiosity, but as a right.</p>
-        <div class="kb-cite">Portes, A., & Rumbaut, R. G. (2001). <em>Legacies: The Story of the Immigrant Second Generation.</em> University of California Press.</div>
+        <div class="kb-cite">Portes, A., &amp; Rumbaut, R. G. (2001). <em>Legacies: The Story of the Immigrant Second Generation.</em> University of California Press.</div>
       </div>
       <div class="kb-sidebar">
         <div class="kb-scard"><h4>Proposed Projects</h4><ul><li>Digital recipe archive</li><li>Heritage language curriculum</li><li>Documentary film series</li><li>Policy brief on food equity</li><li>Community cooking circles</li><li>Museum exhibition</li></ul></div>
@@ -459,87 +788,298 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
   </div>
 </section>
 
+<!-- GLOBAL -->
 <section id="global" class="global-section">
-  <span class="section-label">Global Reception</span>
-  <h2 class="section-title">One Story, <em>Many Countries</em></h2>
-  <p class="section-desc">The same dynamics — food, language, belonging — play out differently around the world. Here are six key cases.</p>
+  <span class="section-label fade-up">Global Reception</span> 
+  <h2 class="section-title fade-up delay-1">One Story, <em>Many Countries</em></h2>
+  <p class="section-desc fade-up delay-2">The same dynamics — food, language, belonging — play out differently around the world. Here are six key cases.</p>
   <div class="global-grid">
-    <div class="gcard"><div class="gcard-top"><div class="gflag">🇩🇪</div><div><div class="gname">Germany — Turkish Diaspora</div><div class="gsub">Gastarbeiter & culinary identity</div></div></div><div class="gcard-body"><p>Turkish workers came to Germany in the 1950s–70s. They cooked Turkish food at home and German food at work. Three generations later, the döner kebab became Germany's most popular street food — a symbol of how immigrant food gets absorbed into national culture, often without credit to the families who brought it.</p></div></div>
-    <div class="gcard"><div class="gcard-top"><div class="gflag">🇺🇸</div><div><div class="gname">United States — Latino Families</div><div class="gsub">Border cuisines & hybrid identity</div></div></div><div class="gcard-body"><p>Mexican-American families in the US Southwest live with the full complexity of immigrant food politics — their cuisine is commercialized and celebrated while they themselves face discrimination. For many families, cooking traditional food at home is an act of cultural survival and pride.</p></div></div>
-    <div class="gcard"><div class="gcard-top"><div class="gflag">🇬🇧</div><div><div class="gname">UK — South Asian Diaspora</div><div class="gsub">Curry, class & postcolonial identity</div></div></div><div class="gcard-body"><p>Chicken tikka masala is sometimes called "Britain's national dish" — but British-Indian families still face racism. The UK case shows how a country can love someone's food while still excluding the people behind it. Home cooking maintains what commercial spaces cannot.</p></div></div>
-    <div class="gcard"><div class="gcard-top"><div class="gflag">🇸🇬</div><div><div class="gname">Singapore — Chinese Diaspora</div><div class="gsub">Hawker culture & national identity</div></div></div><div class="gcard-body"><p>Singapore's hawker centers — now UNESCO heritage — show what happens when immigrant food becomes national identity. This raises hard questions: when the state "preserves" immigrant cooking, does it freeze something that should stay alive and changing?</p></div></div>
-    <div class="gcard"><div class="gcard-top"><div class="gflag">🇦🇺</div><div><div class="gname">Australia — Southeast Asian Diaspora</div><div class="gsub">Multiculturalism & culinary citizenship</div></div></div><div class="gcard-body"><p>Australia officially celebrates its multicultural food culture. But research shows this is often "food multiculturalism" — welcoming the cuisine while keeping social distance from the community. Vietnamese and Filipino families navigate this contradiction every day.</p></div></div>
-    <div class="gcard"><div class="gcard-top"><div class="gflag">🇦🇷</div><div><div class="gname">Argentina — Italian & Syrian Diaspora</div><div class="gsub">An immigrant nation's cuisine</div></div></div><div class="gcard-body"><p>Argentina is largely made up of immigrant communities, and its cuisine reflects this. What started as Italian, Spanish, and Syrian immigrant food has become "Argentine" over generations — showing how immigrant food eventually stops being "foreign" and becomes the national norm.</p></div></div>
+
+    <div class="gcard fade-up">
+      <div class="gcard-top">
+        <div class="gflag" style="background:#e63946">DE</div>
+        <div>
+          <div class="gname" style="color:#e63946">Germany — Turkish Diaspora</div>
+          <div class="gsub">Gastarbeiter & culinary identity</div>
+        </div>
+      </div>
+      <div class="gcard-body"><p>Turkish workers came to Germany in the 1950s–70s. They cooked Turkish food at home and German food at work. Three generations later, the döner kebab became Germany's most popular street food — a symbol of how immigrant food gets absorbed into national culture, often without credit to the families who brought it.</p></div>
+    </div>
+  
+    <div class="gcard fade-up delay-1">
+      <div class="gcard-top">
+        <div class="gflag" style="background:#3a86ff">US</div>
+        <div>
+          <div class="gname" style="color:#3a86ff">United States — Latino Families</div>
+          <div class="gsub">Border cuisines & hybrid identity</div>
+        </div>
+      </div>
+      <div class="gcard-body"><p>Mexican-American families in the US Southwest live with the full complexity of immigrant food politics — their cuisine is commercialized and celebrated while they themselves face discrimination. For many families, cooking traditional food at home is an act of cultural survival and pride.</p></div>
+    </div>
+  
+    <div class="gcard fade-up delay-2">
+      <div class="gcard-top">
+        <div class="gflag" style="background:#2ec4b6">UK</div>
+        <div>
+          <div class="gname" style="color:#2ec4b6">UK — South Asian Diaspora</div>
+          <div class="gsub">Curry, class & postcolonial identity</div>
+        </div>
+      </div>
+      <div class="gcard-body"><p>Chicken tikka masala is sometimes called "Britain's national dish" — but British-Indian families still face racism. The UK case shows how a country can love someone's food while still excluding the people behind it. Home cooking maintains what commercial spaces cannot.</p></div>
+    </div>
+  
+    <div class="gcard fade-up">
+      <div class="gcard-top">
+        <div class="gflag" style="background:#f77f00">SG</div>
+        <div>
+          <div class="gname" style="color:#f77f00">Singapore — Chinese Diaspora</div>
+          <div class="gsub">Hawker culture & national identity</div>
+        </div>
+      </div>
+      <div class="gcard-body"><p>Singapore's hawker centers — now UNESCO heritage — show what happens when immigrant food becomes national identity. This raises hard questions: when the state "preserves" immigrant cooking, does it freeze something that should stay alive and changing?</p></div>
+    </div>
+  
+    <div class="gcard fade-up delay-1">
+      <div class="gcard-top">
+        <div class="gflag" style="background:#6a4c93">AU</div>
+        <div>
+          <div class="gname" style="color:#6a4c93">Australia — Southeast Asian Diaspora</div>
+          <div class="gsub">Multiculturalism & culinary citizenship</div>
+        </div>
+      </div>
+      <div class="gcard-body"><p>Australia officially celebrates its multicultural food culture. But research shows this is often "food multiculturalism" — welcoming the cuisine while keeping social distance from the community. Vietnamese and Filipino families navigate this contradiction every day.</p></div>
+    </div>
+  
+    <div class="gcard fade-up delay-2">
+      <div class="gcard-top">
+        <div class="gflag" style="background:#2d6a4f">AR</div>
+        <div>
+          <div class="gname" style="color:#2d6a4f">Argentina — Italian & Syrian Diaspora</div>
+          <div class="gsub">An immigrant nation's cuisine</div>
+        </div>
+      </div>
+      <div class="gcard-body"><p>Argentina is largely made up of immigrant communities, and its cuisine reflects this. What started as Italian, Spanish, and Syrian immigrant food has become "Argentine" over generations — showing how immigrant food eventually stops being "foreign" and becomes the national norm.</p></div>
+    </div>
+  
   </div>
 </section>
 
+<!-- CONCLUSION -->
 <section id="conclusion" class="conclusion-section">
-  <span class="section-label" style="color:#c4540a">Part D — Conclusion</span>
-  <h2 class="section-title" style="color:#fff;margin-bottom:0.8rem">What We <em>Found</em></h2>
-  <p class="section-desc" style="color:#888">A summary of our key discoveries and our vision for where this research should go next.</p>
+  <span class="section-label" style="color:#c4540a">Part D &mdash; Conclusion</span>
+  <h2 class="section-title fade-up" style="color:#fff;margin-bottom:0.8rem">What We <em>Found</em></h2>
+  <p class="section-desc fade-up delay-1" style="color:#888">A summary of our key discoveries and our vision for where this research should go next.</p>
   <div class="findings">
-    <div class="finding"><div class="fnum">01</div><div><div class="ftitle">Kitchen as Identity Archive</div><p class="ftext">The immigrant home kitchen holds cultural knowledge that cannot survive anywhere else — it is a living archive of who a family is.</p></div></div>
-    <div class="finding"><div class="fnum">02</div><div><div class="ftitle">Language Lives in Recipes</div><p class="ftext">Food vocabulary in heritage languages is among the most resistant to language shift — cooking keeps old words alive longer than almost anything else.</p></div></div>
-    <div class="finding"><div class="fnum">03</div><div><div class="ftitle">Authenticity is a Construction</div><p class="ftext">There is no such thing as perfectly authentic immigrant food. What people call "authentic" always serves someone's interests and often excludes someone else.</p></div></div>
-    <div class="finding"><div class="fnum">04</div><div><div class="ftitle">Women Bear the Burden</div><p class="ftext">In most families, women are expected to preserve food traditions. This is meaningful but invisible labor that is rarely recognized or rewarded.</p></div></div>
-    <div class="finding"><div class="fnum">05</div><div><div class="ftitle">Second Generation is Key</div><p class="ftext">The children of immigrants are where the most complex and interesting cultural negotiations happen — in the kitchen and at the table.</p></div></div>
-    <div class="finding"><div class="fnum">06</div><div><div class="ftitle">Food as Quiet Resistance</div><p class="ftext">Cooking your homeland's dishes in a country that does not always value your culture can be a powerful daily act of self-assertion and survival.</p></div></div>
-    <div class="finding"><div class="fnum">07</div><div><div class="ftitle">Globalization Creates Complexity</div><p class="ftext">Global food trends do not erase immigrant cooking — they push it in new directions and create new forms of hybrid creativity.</p></div></div>
-    <div class="finding"><div class="fnum">08</div><div><div class="ftitle">Digital Platforms Change Everything</div><p class="ftext">Social media has created a completely new public space for immigrant food culture — one that did not exist 15 years ago and is still being understood.</p></div></div>
+    <div class="finding fade-up"><div class="fnum">01</div><div><div class="ftitle">Kitchen as Identity Archive</div><p class="ftext">The immigrant home kitchen holds cultural knowledge that cannot survive anywhere else — it is a living archive of who a family is.</p></div></div>
+    <div class="finding fade-up delay-1"><div class="fnum">02</div><div><div class="ftitle">Language Lives in Recipes</div><p class="ftext">Food vocabulary in heritage languages is among the most resistant to language shift — cooking keeps old words alive longer than almost anything else.</p></div></div>
+    <div class="finding fade-up"><div class="fnum">03</div><div><div class="ftitle">Authenticity is a Construction</div><p class="ftext">There is no such thing as perfectly authentic immigrant food. What people call &ldquo;authentic&rdquo; always serves someone&rsquo;s interests and often excludes someone else.</p></div></div>
+    <div class="finding fade-up delay-1"><div class="fnum">04</div><div><div class="ftitle">Women Bear the Burden</div><p class="ftext">In most families, women are expected to preserve food traditions. This is meaningful but invisible labor that is rarely recognized or rewarded.</p></div></div>
+    <div class="finding fade-up"><div class="fnum">05</div><div><div class="ftitle">Second Generation is Key</div><p class="ftext">The children of immigrants are where the most complex and interesting cultural negotiations happen — in the kitchen and at the table.</p></div></div>
+    <div class="finding fade-up delay-1"><div class="fnum">06</div><div><div class="ftitle">Food as Quiet Resistance</div><p class="ftext">Cooking your homeland&rsquo;s dishes in a country that does not always value your culture can be a powerful daily act of self-assertion and survival.</p></div></div>
+    <div class="finding fade-up"><div class="fnum">07</div><div><div class="ftitle">Globalization Creates Complexity</div><p class="ftext">Global food trends do not erase immigrant cooking — they push it in new directions and create new forms of hybrid creativity.</p></div></div>
+    <div class="finding fade-up delay-1"><div class="fnum">08</div><div><div class="ftitle">Digital Platforms Change Everything</div><p class="ftext">Social media has created a completely new public space for immigrant food culture — one that did not exist 15 years ago and is still being understood.</p></div></div>
   </div>
-  <div class="future-box">
-    <h3>🔭 Vision for the Future</h3>
-    <p>We believe immigrant families' food knowledge should be recognized as real cultural heritage — not just in museums, but in schools, hospitals, and neighborhoods. Imagine schools where children learn their heritage language through cooking. Imagine cities with community kitchens where immigrant women can share their food on equal terms. Imagine a world where the second generation is proud, not ashamed, of what their parents cook.</p>
+  <div class="future-box fade-up">
+    <h3>&#128301; Vision for the Future</h3>
+    <p>We believe immigrant families&rsquo; food knowledge should be recognized as real cultural heritage — not just in museums, but in schools, hospitals, and neighborhoods. Imagine schools where children learn their heritage language through cooking. Imagine cities with community kitchens where immigrant women can share their food on equal terms. Imagine a world where the second generation is proud, not ashamed, of what their parents cook.</p>
     <p>Future research should follow specific families across three or more generations, study the language of the kitchen directly, explore digital food culture as a new kind of public space, and — most importantly — center the voices of the communities themselves. The best experts on immigrant food are not academics. They are the people holding the spoon.</p>
   </div>
 </section>
 
+<!-- REFERENCES -->
 <section id="references" class="ref-section">
-  <span class="section-label">APA 7th Edition</span>
-  <h2 class="section-title">References</h2>
-  <p style="text-align:center;color:#888;font-size:0.86rem;margin-bottom:3rem">All scholarly sources cited in this project.</p>
+  <span class="section-label fade-up"> </span>
+  <h2 class="section-title fade-up delay-1">References</h2>
+  <p class="fade-up delay-2" style="text-align:center;color:#888;font-size:0.86rem;margin-bottom:3rem">All scholarly sources cited in this project.</p>
   <div class="ref-list">
-    <div class="ref-item">Appadurai, A. (1988). How to make a national cuisine: Cookbooks in contemporary India. <em>Comparative Studies in Society and History, 30</em>(1), 3–24.</div>
-    <div class="ref-item">Bendix, R. (1997). <em>In search of authenticity: The formation of folklore studies.</em> University of Wisconsin Press.</div>
-    <div class="ref-item">Bourdieu, P. (1984). <em>Distinction: A social critique of the judgement of taste</em> (R. Nice, Trans.). Harvard University Press.</div>
-    <div class="ref-item">De Certeau, M. (1984). <em>The practice of everyday life</em> (S. Rendall, Trans.). University of California Press.</div>
-    <div class="ref-item">DeVault, M. L. (1991). <em>Feeding the family: The social organization of caring as gendered work.</em> University of Chicago Press.</div>
-    <div class="ref-item">Fischler, C. (1988). Food, self and identity. <em>Social Science Information, 27</em>(2), 275–292.</div>
-    <div class="ref-item">Gabaccia, D. R. (1998). <em>We are what we eat: Ethnic food and the making of Americans.</em> Harvard University Press.</div>
-    <div class="ref-item">Hall, S. (1990). Cultural identity and diaspora. In J. Rutherford (Ed.), <em>Identity: Community, culture, difference</em> (pp. 222–237). Lawrence & Wishart.</div>
-    <div class="ref-item">hooks, b. (1992). Eating the other: Desire and resistance. In <em>Black looks: Race and representation</em> (pp. 21–39). South End Press.</div>
-    <div class="ref-item">Mannur, A. (2010). <em>Culinary fictions: Food in South Asian diasporic culture.</em> Temple University Press.</div>
-    <div class="ref-item">Pavlenko, A. (2008). Multilingualism in post-Soviet countries. <em>International Journal of Bilingual Education and Bilingualism, 11</em>(3–4), 243–260.</div>
-    <div class="ref-item">Pilcher, J. M. (1998). <em>¡Que vivan los tamales! Food and the making of Mexican identity.</em> University of New Mexico Press.</div>
-    <div class="ref-item">Portes, A., & Rumbaut, R. G. (2001). <em>Legacies: The story of the immigrant second generation.</em> University of California Press.</div>
-    <div class="ref-item">Ray, K. (2004). <em>The migrant's table: Meals and memories in Bengali-American households.</em> Temple University Press.</div>
-    <div class="ref-item">Sutton, D. E. (2001). <em>Remembrance of repasts: An anthropology of food and memory.</em> Berg Publishers.</div>
+    <div class="ref-item fade-up">Appadurai, A. (1988). How to make a national cuisine: Cookbooks in contemporary India. <em>Comparative Studies in Society and History, 30</em>(1), 3&ndash;24.</div>
+    <div class="ref-item fade-up">Bendix, R. (1997). <em>In search of authenticity: The formation of folklore studies.</em> University of Wisconsin Press.</div>
+    <div class="ref-item fade-up">Bourdieu, P. (1984). <em>Distinction: A social critique of the judgement of taste</em> (R. Nice, Trans.). Harvard University Press.</div>
+    <div class="ref-item fade-up">De Certeau, M. (1984). <em>The practice of everyday life</em> (S. Rendall, Trans.). University of California Press.</div>
+    <div class="ref-item fade-up">DeVault, M. L. (1991). <em>Feeding the family: The social organization of caring as gendered work.</em> University of Chicago Press.</div>
+    <div class="ref-item fade-up">Fischler, C. (1988). Food, self and identity. <em>Social Science Information, 27</em>(2), 275&ndash;292.</div>
+    <div class="ref-item fade-up">Gabaccia, D. R. (1998). <em>We are what we eat: Ethnic food and the making of Americans.</em> Harvard University Press.</div>
+    <div class="ref-item fade-up">Hall, S. (1990). Cultural identity and diaspora. In J. Rutherford (Ed.), <em>Identity: Community, culture, difference</em> (pp. 222&ndash;237). Lawrence &amp; Wishart.</div>
+    <div class="ref-item fade-up">hooks, b. (1992). Eating the other: Desire and resistance. In <em>Black looks: Race and representation</em> (pp. 21&ndash;39). South End Press.</div>
+    <div class="ref-item fade-up">Mannur, A. (2010). <em>Culinary fictions: Food in South Asian diasporic culture.</em> Temple University Press.</div>
+    <div class="ref-item fade-up">Pavlenko, A. (2008). Multilingualism in post-Soviet countries. <em>International Journal of Bilingual Education and Bilingualism, 11</em>(3&ndash;4), 243&ndash;260.</div>
+    <div class="ref-item fade-up">Pilcher, J. M. (1998). <em>&iexcl;Que vivan los tamales! Food and the making of Mexican identity.</em> University of New Mexico Press.</div>
+    <div class="ref-item fade-up">Portes, A., &amp; Rumbaut, R. G. (2001). <em>Legacies: The story of the immigrant second generation.</em> University of California Press.</div>
+    <div class="ref-item fade-up">Ray, K. (2004). <em>The migrant&rsquo;s table: Meals and memories in Bengali-American households.</em> Temple University Press.</div>
+    <div class="ref-item fade-up">Sutton, D. E. (2001). <em>Remembrance of repasts: An anthropology of food and memory.</em> Berg Publishers.</div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-logo">🏠 Home & Heart</div>
-  <p class="footer-sub">Home Cooking, Culture & Belonging in Immigrant Families</p>
-  <p class="footer-sub" style="margin-top:0.4rem;color:#444">Food, Language & Identity · Capstone Project · Webster University Tashkent · APA 7th Edition</p>
+  <div class="footer-logo">&#127968; Home &amp; Heart</div>
+  <p class="footer-sub">Home Cooking, Culture &amp; Belonging in Immigrant Families</p>
+  <p class="footer-sub" style="margin-top:0.4rem;color:#444">Food, Language &amp; Identity &middot; ILC 2250 2T : Coffee & Plov T: 2026 Spring &middot; Webster University Tashkent &middot;</p>
 </footer>
 
 <script>
+/* ════════════════════════════════════════════════════════
+   HOW TO SET PHOTOS VIA CODE (instead of clicking circles)
+   ════════════════════════════════════════════════════════
+   Replace "" with the path or URL to each person's photo.
+   Examples:
+     "photos/ismoil.jpg"          ← relative path
+     "C:/Users/You/Pictures/a.jpg" ← Windows absolute (use in local browser)
+     "https://example.com/img.jpg" ← web URL
+
+   Leave as "" to keep the emoji placeholder.
+================================================================ */
+const PHOTO_PATHS = {
+  'av-ismoil'     : 'IMG_9811 (2).jpg',   // e.g. "photos/ismoil.jpg"
+  'av-dilmuhammad': 'photo_2026-04-28_02-42-30.jpg', 
+  'av-zulfizar'   : 'photo_2026-04-28_02-42-34.jpg',
+  'av-sunnat'     : 'photo_2026-04-28_02-42-58.jpg',
+  'av-otabek'     : 'photo_2026-04-28_02-43-04.jpg',
+  'av-samira'     : 'photo_2026-04-28_02-43-19.jpg',
+  'av-abdulaziz'  : '',
+  'av-feruzbek'  : 'photo_2026-04-28_02-52-10.jpg',
+  'av-rayhona'  : 'photo_2026-04-28_02-43-34.jpg',
+  'av-khumoyun'  : 'photo_2026-04-28_02-43-47.jpg',
+};
+
+/* Auto-loads photos from PHOTO_PATHS on page start */
+window.addEventListener('DOMContentLoaded', () => {
+  Object.entries(PHOTO_PATHS).forEach(([id, path]) => {
+    if (path) setAvatarSrc(id, path);
+  });
+  initFadeUp();
+  initCounters();
+});
+
+/* Set an avatar by URL/path */
+function setAvatarSrc(avatarId, src) {
+  const av = document.getElementById(avatarId);
+  if (!av) return;
+  const existing = av.querySelector('img');
+  if (existing) existing.remove();
+  av.querySelector('.avatar-emoji') && (av.querySelector('.avatar-emoji').style.display = 'none');
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = avatarId;
+  img.onerror = () => { img.remove(); const e = av.querySelector('.avatar-emoji'); if(e) e.style.display=''; };
+  av.insertBefore(img, av.querySelector('.upload-overlay'));
+  av.classList.add('has-photo');
+  const hint = av.parentElement && av.parentElement.querySelector('.upload-hint');
+  if (hint) hint.textContent = 'Click to change';
+}
+
+/* Called when user clicks and picks a file */
+function loadAvatar(input, avatarId) {
+  if (!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => setAvatarSrc(avatarId, e.target.result);
+  reader.readAsDataURL(input.files[0]);
+}
+
+/* ── Nav ── */
 function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
 function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+
+/* ── KB Tabs ── */
 function showKB(id,btn){
   document.querySelectorAll('.kb-panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.kb-tab').forEach(t=>t.classList.remove('active'));
   document.getElementById('kp-'+id).classList.add('active');
   btn.classList.add('active');
 }
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';}});
-},{threshold:0.07});
-document.querySelectorAll('.team-card,.icard,.insight-card,.gcard,.rcard,.finding').forEach(el=>{
-  el.style.opacity='0';el.style.transform='translateY(18px)';
-  el.style.transition='opacity 0.5s ease, transform 0.5s ease';
-  obs.observe(el);
-});
+
+/* ── Fade-up scroll animation ── */
+function initFadeUp() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+}
+
+/* ── Animated stat counters ── */
+function initCounters() {
+  const counters = document.querySelectorAll('.stat-big[data-target]');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1400;
+      const start = performance.now();
+      obs.unobserve(el);
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        // ease-out cubic
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const val = Math.round(ease * target);
+        el.textContent = val + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else {
+          el.textContent = target + suffix;
+          el.classList.add('pop');
+          setTimeout(() => el.classList.remove('pop'), 300);
+        }
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => obs.observe(c));
+}
+
+/* ── Video: upload local file ── */
+function loadVideo(input, slotId, placeholderId) {
+  if (!input.files || !input.files[0]) return;
+  const url = URL.createObjectURL(input.files[0]);
+  const slot = document.getElementById(slotId);
+  const ph = document.getElementById(placeholderId);
+  slot.querySelector('iframe') && slot.querySelector('iframe').remove();
+  slot.querySelector('video') && slot.querySelector('video').remove();
+  ph.style.display = 'none';
+  const v = document.createElement('video');
+  v.src = url; v.controls = true;
+  v.style.cssText = 'width:100%;aspect-ratio:16/9;object-fit:cover;display:block';
+  slot.insertBefore(v, slot.querySelector('.video-remove'));
+  slot.classList.add('has-video');
+}
+
+/* ── Video: remove ── */
+function removeVideo(slotId, placeholderId) {
+  const slot = document.getElementById(slotId);
+  const ph = document.getElementById(placeholderId);
+  const v = slot.querySelector('video');
+  if (v) { URL.revokeObjectURL(v.src); v.remove(); }
+  slot.querySelector('iframe') && slot.querySelector('iframe').remove();
+  ph.style.display = 'flex';
+  slot.classList.remove('has-video');
+  const fi = slot.querySelector('input[type=file]');
+  if (fi) fi.value = '';
+}
+
+/* ── Video: embed YouTube ── */
+function embedYT(inputId, slotId, placeholderId) {
+  const raw = document.getElementById(inputId).value.trim();
+  if (!raw) return;
+  const m = raw.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/);
+  if (!m) { alert('Please paste a valid YouTube URL.'); return; }
+  const slot = document.getElementById(slotId);
+  const ph = document.getElementById(placeholderId);
+  slot.querySelector('video') && slot.querySelector('video').remove();
+  slot.querySelector('iframe') && slot.querySelector('iframe').remove();
+  ph.style.display = 'none';
+  const iframe = document.createElement('iframe');
+  iframe.src = 'https://www.youtube.com/embed/' + m[1];
+  iframe.style.cssText = 'width:100%;aspect-ratio:16/9;border:none;display:block';
+  iframe.allow = 'accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+  iframe.allowFullscreen = true;
+  slot.insertBefore(iframe, slot.querySelector('.video-remove'));
+  slot.classList.add('has-video');
+  document.getElementById(inputId).value = '';
+}
 </script>
 </body>
 </html>
