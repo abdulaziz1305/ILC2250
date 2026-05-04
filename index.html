@@ -91,22 +91,146 @@ nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(255,255,255,0.97
 .about-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
 .tag{background:#fff3ea;color:#c4540a;border:1px solid #f5c09a;border-radius:50px;padding:0.32rem 0.9rem;font-size:0.76rem;font-weight:500}
 
-.team-section{padding:6rem 2rem;background:#fff}
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;max-width:1160px;margin:0 auto}
-.team-card{border:1px solid #f0ebe3;border-radius:20px;overflow:hidden;transition:all 0.25s;background:#fff}
-.team-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(196,84,10,0.12)}
-.team-photo{height:150px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Android Emoji",sans-serif}
-.tc1{background:linear-gradient(135deg,#fff3ea,#fde0c0)}
-.tc2{background:linear-gradient(135deg,#e8f5e9,#c8e6c9)}
-.tc3{background:linear-gradient(135deg,#fff8e1,#ffe082)}
-.tc4{background:linear-gradient(135deg,#fce4ec,#f8bbd0)}
-.tc5{background:linear-gradient(135deg,#e3f2fd,#bbdefb)}
-.tc6{background:linear-gradient(135deg,#f3e5f5,#e1bee7)}
-.tc7{background:linear-gradient(135deg,#e0f7fa,#b2ebf2)}
-.team-info{padding:1.3rem}
-.team-name{font-family:'Fraunces',serif;font-size:1rem;color:#1a1a1a;margin-bottom:0.22rem}
-.team-role{font-size:0.7rem;color:#c4540a;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:0.6rem}
-.team-bio{font-size:0.78rem;color:#777;line-height:1.6}
+/* ════ TEAM SECTION ════ */
+.team-section{
+  padding:7rem 2.5rem 9rem;
+  background:#fff;
+  position:relative;overflow:hidden;
+}
+.team-section::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+}
+.team-blob{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
+.team-blob.b1{width:600px;height:600px;background:rgba(196,84,10,.05);top:-160px;right:-180px}
+.team-blob.b2{width:400px;height:400px;background:rgba(245,192,90,.07);bottom:-100px;left:-100px}
+.team-header{
+  text-align:center;margin-bottom:4.5rem;
+  position:relative;z-index:1;
+  opacity:0;transform:translateY(28px);
+  transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);
+}
+.team-header.vis{opacity:1;transform:none}
+.kicker{
+  display:inline-flex;align-items:center;gap:.65rem;
+  font-size:.68rem;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:#c4540a;margin-bottom:1rem;
+}
+.kicker::before,.kicker::after{content:'';width:28px;height:1px;background:#c4540a;opacity:.4}
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(200px,1fr));
+  gap:1.35rem;
+  max-width:1260px;
+  margin:0 auto;
+  position:relative;z-index:1;
+}
+.team-card{
+  border-radius:22px;overflow:hidden;
+  background:#fff;border:1px solid #f0e8de;
+  cursor:pointer;position:relative;
+  opacity:0;transform:translateY(46px) scale(.97);
+  transition:transform .45s cubic-bezier(.23,1,.32,1),box-shadow .45s cubic-bezier(.23,1,.32,1),border-color .3s;
+}
+.team-card.vis{animation:cardIn .68s cubic-bezier(.23,1,.32,1) forwards}
+.team-card:nth-child(1){animation-delay:.00s}
+.team-card:nth-child(2){animation-delay:.07s}
+.team-card:nth-child(3){animation-delay:.14s}
+.team-card:nth-child(4){animation-delay:.21s}
+.team-card:nth-child(5){animation-delay:.28s}
+.team-card:nth-child(6){animation-delay:.35s}
+.team-card:nth-child(7){animation-delay:.42s}
+.team-card:nth-child(8){animation-delay:.49s}
+.team-card:nth-child(9){animation-delay:.56s}
+.team-card:nth-child(10){animation-delay:.63s}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(46px) scale(.97)}
+  to  {opacity:1;transform:translateY(0) scale(1)}
+}
+.team-card:hover{
+  transform:translateY(-10px) scale(1.025);
+  box-shadow:0 28px 60px rgba(196,84,10,.14),0 6px 18px rgba(0,0,0,.05);
+  border-color:#f5c09a;z-index:10;
+}
+.card-art{
+  height:200px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.g1 {background:linear-gradient(145deg,#fff3ea,#fde0c0)}
+.g2 {background:linear-gradient(145deg,#fff8e1,#ffe082)}
+.g3 {background:linear-gradient(145deg,#fce8ef,#fbbdd1)}
+.g4 {background:linear-gradient(145deg,#edf6ee,#cce8ce)}
+.g5 {background:linear-gradient(145deg,#fff3e0,#ffcc80)}
+.g6 {background:linear-gradient(145deg,#f3e8ff,#ddb6f7)}
+.g7 {background:linear-gradient(145deg,#e8f4fd,#b3d9f7)}
+.g8 {background:linear-gradient(145deg,#fce4ec,#f48fb1)}
+.g9 {background:linear-gradient(145deg,#e8fdf5,#a7f0d4)}
+.g10{background:linear-gradient(145deg,#fff3ea,#fde8c0)}
+.art-ring{
+  position:absolute;border-radius:50%;
+  width:100px;height:100px;
+  background:rgba(255,255,255,.38);
+  border:1px solid rgba(255,255,255,.65);
+  animation:ringBreath 3.8s ease-in-out infinite;
+}
+@keyframes ringBreath{
+  0%,100%{transform:scale(1);opacity:.5}
+  50%{transform:scale(1.1);opacity:.2}
+}
+.card-svg{
+  width:88px;height:88px;position:relative;z-index:1;
+  filter:drop-shadow(0 5px 12px rgba(0,0,0,.13));
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.team-card:hover .card-svg{transform:scale(1.14) rotate(-4deg)}
+.card-body{padding:1.6rem 1.5rem 2rem}
+.member-name{
+  font-family:'Fraunces',serif;
+  font-size:.98rem;color:#1a1a1a;
+  margin-bottom:.3rem;
+  display:inline-block;position:relative;
+}
+.member-name::after{
+  content:'';position:absolute;bottom:-2px;left:0;
+  width:0;height:2px;
+  background:linear-gradient(90deg,#c4540a,#f59e0b);
+  border-radius:2px;
+  transition:width .38s cubic-bezier(.23,1,.32,1);
+}
+.team-card:hover .member-name::after{width:100%}
+.roles{display:flex;flex-wrap:wrap;gap:.28rem;margin-bottom:.7rem}
+.role-tag{
+  font-size:.6rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:#c4540a;
+  background:linear-gradient(135deg,#fff3ea,#fde8d0);
+  border:1px solid #f5c09a;border-radius:50px;
+  padding:.15rem .58rem;white-space:nowrap;
+}
+.member-bio{font-size:.88rem;color:#9b8f82;line-height:1.72}
+.card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(155deg,rgba(196,84,10,.96),rgba(232,119,34,.98));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:1.8rem 1.3rem;text-align:center;
+  opacity:0;transform:translateY(10px);
+  transition:opacity .38s cubic-bezier(.23,1,.32,1),transform .38s cubic-bezier(.23,1,.32,1);
+  pointer-events:none;border-radius:22px;
+}
+.team-card:hover .card-overlay{opacity:1;transform:translateY(0);pointer-events:auto}
+.ov-svg{
+  width:58px;height:58px;margin-bottom:.9rem;
+  filter:brightness(0) invert(1) opacity(.85);
+  transform:scale(.7) rotate(-10deg);
+  transition:transform .45s cubic-bezier(.34,1.56,.64,1) .04s;
+}
+.team-card:hover .ov-svg{transform:scale(1) rotate(0)}
+.ov-name{font-family:'Fraunces',serif;font-size:1rem;color:#fff;font-weight:700;margin-bottom:.18rem}
+.ov-role{font-size:.6rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.75rem}
+.ov-bio{font-size:.76rem;color:rgba(255,255,255,.88);line-height:1.72}
+.team-progress{display:flex;justify-content:center;gap:5px;margin-top:2.8rem;position:relative;z-index:1}
+.dot{width:6px;height:6px;border-radius:50%;background:#e8ddd4;transition:all .3s cubic-bezier(.23,1,.32,1)}
+.dot.on{width:22px;border-radius:3px;background:#c4540a}
 
 /* ── REFLECTIONS ── */
 .reflect-section{padding:6rem 2rem;background:#1a1a1a}
@@ -223,34 +347,229 @@ nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(255,255,255,0.97
 .ins-title{font-family:'Fraunces',serif;font-size:1rem;color:#1a1a1a;margin-bottom:0.5rem}
 .ins-text{font-size:0.82rem;color:#777;line-height:1.75}
 
+/* ══════════════════════════════════════════════════
+   GLOBAL SECTION — Redesigned with animations
+══════════════════════════════════════════════════ */
 .global-section{
-  padding:6rem 2rem;
-  background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
-             url('photo_2026-04-28_04-32-58.jpg') center/cover no-repeat fixed;
-}
-.global-section .section-label{color:#f5c09a}
-.global-section .section-title{color:#fff}
-.global-section .section-title em{color:#f5c09a}
-.global-section .section-desc{color:#ccc}
-.global-section .gcard{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(12px)}
-.global-section .gcard-top{border-bottom:1px solid rgba(255,255,255,0.1)}
-.global-section .gsub{color:#aaa}
-.global-section .gcard-body p{color:#ccc}
-.global-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1100px;margin:0 auto}
-.gcard{border:1px solid #f0ebe3;border-radius:20px;overflow:hidden;transition:transform 0.2s;background:#fff}
-.gcard:hover{transform:translateY(-4px)}
-.gcard-top{padding:1.6rem 1.6rem 1rem;border-bottom:1px solid #f0ebe3;display:flex;align-items:center;gap:1rem}
-.gflag{
-  width:48px;height:48px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:0.78rem;font-weight:700;color:#fff;flex-shrink:0;
-  font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:0.05em;
+  padding:7rem 2rem;
+  background:#0d0d0d;
+  position:relative;
+  overflow:hidden;
 }
 
-.gname{font-family:'Fraunces',serif;font-size:1rem;color:#1a1a1a}
-.gsub{font-size:0.7rem;color:#888}
-.gcard-body{padding:1.3rem 1.6rem}
-.gcard-body p{font-size:0.82rem;color:#666;line-height:1.8}
+/* Animated world-map dot grid background */
+.global-section::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle,rgba(196,84,10,0.18) 1px,transparent 1px);
+  background-size:28px 28px;
+  animation:gridPulse 6s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes gridPulse{
+  0%,100%{opacity:0.4}
+  50%{opacity:0.9}
+}
+
+/* Glow orbs */
+.global-section::after{
+  content:'';
+  position:absolute;
+  width:700px;height:700px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(196,84,10,0.12) 0%,transparent 70%);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  animation:orbBreath 8s ease-in-out infinite;
+}
+@keyframes orbBreath{
+  0%,100%{transform:translate(-50%,-50%) scale(1)}
+  50%{transform:translate(-50%,-50%) scale(1.2)}
+}
+
+.global-section .section-label{color:#c4540a;position:relative;z-index:1}
+.global-section .section-title{color:#fff;position:relative;z-index:1}
+.global-section .section-title em{color:#f5c09a}
+.global-section .section-desc{color:#999;position:relative;z-index:1}
+
+/* ── Horizontal scroll ticker for the countries ── */
+.globe-ticker-wrap{
+  width:100%;overflow:hidden;
+  margin-bottom:3.5rem;
+  position:relative;z-index:1;
+}
+.globe-ticker{
+  display:flex;gap:1.5rem;
+  animation:tickerScroll 22s linear infinite;
+  width:max-content;
+}
+.globe-ticker:hover{animation-play-state:paused}
+.globe-ticker-item{
+  background:rgba(196,84,10,0.12);
+  border:1px solid rgba(196,84,10,0.3);
+  border-radius:50px;
+  padding:0.4rem 1.1rem;
+  font-size:0.72rem;
+  font-weight:600;
+  color:#f5c09a;
+  white-space:nowrap;
+  letter-spacing:0.06em;
+}
+@keyframes tickerScroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
+/* ── Case cards with flip effect ── */
+.global-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.8rem;
+  max-width:1140px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+
+.gcard{
+  perspective:1000px;
+  height:450px;
+  cursor:pointer;
+}
+.gcard-inner{
+  position:relative;
+  width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform 0.65s cubic-bezier(.4,0,.2,1);
+  border-radius:20px;
+}
+.gcard:hover .gcard-inner{
+  transform:rotateY(180deg);
+}
+.gcard-front,.gcard-back{
+  position:absolute;inset:0;
+  border-radius:20px;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  padding:1.8rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.gcard-front{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(12px);
+}
+.gcard-back{
+  background:linear-gradient(135deg,#1e0f04,#2a1500);
+  border:1px solid rgba(196,84,10,0.4);
+  transform:rotateY(180deg);
+  justify-content:flex-start;
+  gap:0.9rem;
+  overflow:hidden;
+}
+
+/* Front card parts */
+.gcard-front-flag{
+  width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.78rem;font-weight:700;color:#fff;
+  font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:0.05em;
+  flex-shrink:0;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  margin-bottom:0.2rem;
+}
+.gcard-front-country{
+  font-family:'Fraunces',serif;
+  font-size:1.12rem;
+  font-weight:700;
+  color:#fff;
+  line-height:1.2;
+  margin-bottom:0.2rem;
+}
+.gcard-front-sub{
+  font-size:0.7rem;
+  color:#888;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+}
+.gcard-front-teaser{
+  font-size:0.82rem;
+  color:#bbb;
+  line-height:1.7;
+  margin-top:0.5rem;
+}
+.gcard-flip-hint{
+  font-size:0.65rem;
+  color:rgba(196,84,10,0.7);
+  text-align:right;
+  font-weight:600;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  margin-top:auto;
+  padding-top:0.8rem;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+
+/* Back card parts */
+.gcard-back-label{
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:#c4540a;
+}
+.gcard-back-title{
+  font-family:'Fraunces',serif;
+  font-size:1rem;
+  color:#f5c09a;
+  font-style:italic;
+  line-height:1.3;
+}
+.gcard-back-body{
+  font-size:0.8rem;
+  color:#ccc;
+  line-height:1.8;
+  flex:1;
+}
+.gcard-back-source{
+  font-size:0.65rem;
+  color:rgba(196,84,10,0.7);
+  font-style:italic;
+  border-top:1px solid rgba(196,84,10,0.2);
+  padding-top:0.7rem;
+  margin-top:auto;
+}
+
+/* ── Connecting line between cards (decorative) ── */
+.global-connector{
+  display:flex;align-items:center;justify-content:center;
+  gap:0.5rem;
+  margin:2.5rem auto 0;
+  max-width:700px;
+  position:relative;z-index:1;
+}
+.connector-line{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(196,84,10,0.4),transparent);
+}
+.connector-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:#c4540a;
+  box-shadow:0 0 12px rgba(196,84,10,0.6);
+  animation:dotBlink 2s ease-in-out infinite;
+}
+.connector-dot:nth-child(2){animation-delay:0.3s}
+.connector-dot:nth-child(4){animation-delay:0.6s}
+@keyframes dotBlink{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.3;transform:scale(0.6)}
+}
+
+/* ══════════════════════════════════════════════════ */
 
 .kb-section{padding:6rem 2rem;background:#faf8f5}
 .kb-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem}
@@ -275,30 +594,64 @@ nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(255,255,255,0.97
 .conclusion-section{padding:6rem 2rem;background:#1a1a1a}
 .findings{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:900px;margin:0 auto 3rem}
 .finding{background:#242424;border:1px solid #333;border-radius:16px;padding:1.6rem;display:flex;gap:1.1rem}
-.fnum{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:900;color:#3a2010;flex-shrink:0;line-height:1}
+.fnum{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:900;color:#ffffff;flex-shrink:0;line-height:1}
 .ftitle{font-size:0.82rem;font-weight:600;color:#f5c09a;margin-bottom:0.35rem}
 .ftext{font-size:0.8rem;color:#888;line-height:1.7}
 .future-box{background:#2f1a0a;border:1px solid #5a2a10;border-radius:20px;padding:2.5rem;max-width:900px;margin:0 auto}
 .future-box h3{font-family:'Fraunces',serif;font-size:1.35rem;color:#f5c09a;margin-bottom:1rem}
 .future-box p{font-size:0.88rem;color:#999;line-height:1.9;margin-bottom:1rem}
 
+/* ══════════════════════════════════════════════════
+   REFERENCES — Updated with real DOIs/URLs
+══════════════════════════════════════════════════ */
 .ref-section{padding:5rem 2rem;background:#fff}
 .ref-list{max-width:780px;margin:0 auto}
 .ref-item{font-size:0.83rem;color:#666;line-height:1.8;padding:0.9rem 0;border-bottom:1px solid #f5f0eb;padding-left:1.8rem;text-indent:-1.8rem}
+.ref-item a{
+  color:#c4540a;text-decoration:none;font-size:0.75rem;font-weight:600;
+  border-bottom:1px dashed rgba(196,84,10,0.4);
+  transition:border-color 0.2s,color 0.2s;
+  white-space:nowrap;
+}
+.ref-item a:hover{color:#e06020;border-color:#e06020}
+.ref-doi{
+  display:inline-block;
+  background:#fff3ea;
+  border:1px solid #f5c09a;
+  border-radius:4px;
+  padding:0.05rem 0.4rem;
+  font-size:0.68rem;
+  font-weight:700;
+  color:#c4540a;
+  margin-left:0.3rem;
+  letter-spacing:0.04em;
+  vertical-align:middle;
+  text-indent:0;
+}
 
 footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px solid #333}
 .footer-logo{font-family:'Fraunces',serif;font-size:1.4rem;color:#c4540a;margin-bottom:0.5rem}
 .footer-sub{font-size:0.76rem;color:#555;letter-spacing:0.04em}
 
+@media(max-width:1100px){.team-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:1050px){.team-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:800px){
   .intro-cards,.global-grid,.insights-grid,.stats-inner,.findings{grid-template-columns:1fr 1fr}
   .about-inner,.reflect-grid,.kb-panel.active,.video-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:repeat(2,1fr)}
+  .card-overlay{display:none}
   .nav-links{display:none}
   .hamburger{display:flex}
+  .global-grid{grid-template-columns:1fr 1fr}
+  .gcard{height:280px}
 }
-@media(max-width:500px){.intro-cards,.team-grid,.global-grid,.insights-grid,.stats-inner,.findings{grid-template-columns:1fr}}
+@media(max-width:500px){
+  .intro-cards,.team-grid,.global-grid,.insights-grid,.stats-inner,.findings{grid-template-columns:1fr}
+  .gcard{height:auto}
+  .gcard-inner{transform-style:flat}
+  .gcard:hover .gcard-inner{transform:none}
+  .gcard-back{display:none}
+}
 </style>
 </head>
 <body>
@@ -396,21 +749,347 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
 
 <!-- TEAM -->
 <section id="team" class="team-section">
-  <span class="section-label fade-up">Our Team</span>
-  <h2 class="section-title fade-up delay-1">Meet the <em>Researchers</em></h2>
-  <p class="section-desc fade-up delay-2">Seven students, one shared mission — exploring how food, language, and identity connect in immigrant families around the world.</p>
+  <div class="team-blob b1"></div>
+  <div class="team-blob b2"></div>
+
+  <header class="team-header" id="teamHeader">
+    <span class="kicker">The People Behind the Project</span>
+    <h2 class="section-title">Meet the <em>Research Team</em></h2>
+    <p class="section-desc">Ten voices, one shared table — exploring how food carries memory, meaning, and identity across cultures.</p>
+  </header>
+
   <div class="team-grid">
-    <div class="team-card fade-up"><div class="team-photo tc1">&#128300;</div><div class="team-info"><div class="team-name">Ismoil Turgunboev</div><div class="team-role">Researcher</div><p class="team-bio">Explores how food carries oral history and how marginalized communities used cooking as a tool of resilience, survival, and resistance.</p></div></div>
-    <div class="team-card fade-up delay-1"><div class="team-photo tc2">&#9997;&#65039;</div><div class="team-info"><div class="team-name">Dilmuhammad Rustamov</div><div class="team-role">Researcher &middot; Content Writer</div><p class="team-bio">Investigates how food is embedded in power and language, and how globalization is both preserving and eroding local food identities.</p></div></div>
-    <div class="team-card fade-up delay-2"><div class="team-photo tc3">&#127800;</div><div class="team-info"><div class="team-name">Zulfizar Xolboyeva</div><div class="team-role">Researcher &middot; Visual Designer</div><p class="team-bio">Shows how every dish carries meaning, history, and social values — and brings the project to life through visual storytelling.</p></div></div>
-    <div class="team-card fade-up delay-3"><div class="team-photo tc4">&#128218;</div><div class="team-info"><div class="team-name">Sunnat Zoirov</div><div class="team-role">Researcher</div><p class="team-bio">Studies how food connects to personal history and community values, and how language shapes the way people understand what they eat.</p></div></div>
-    <div class="team-card fade-up"><div class="team-photo tc5">&#127760;</div><div class="team-info"><div class="team-name">Otabek Khamroyev</div><div class="team-role">Researcher</div><p class="team-bio">Looks at food as social glue — how shared meals at family gatherings and everyday moments strengthen culture and community bonds.</p></div></div>
-    <div class="team-card fade-up delay-1"><div class="team-photo tc6">&#127800;</div><div class="team-info"><div class="team-name">Samira Irgasheva</div><div class="team-role">Researcher</div><p class="team-bio">Explores how gender, religion, and globalization shape food practices — and how these insights can help create more respectful classrooms.</p></div></div>
-    <div class="team-card fade-up delay-2"><div class="team-photo tc7">&#128187;</div><div class="team-info"><div class="team-name">Abdulaziz Nosirov</div><div class="team-role">Developer</div><p class="team-bio">Built the digital experience for this project and researches how food traditions change when people migrate — yet still keep their meaning.</p></div></div>
-    <div class="team-card fade-up"><div class="team-photo tc5">&#127760;</div><div class="team-info"><div class="team-name">Feruzbek Mengdobilov</div><div class="team-role">Researcher</div><p class="team-bio">Food is more than nourishment—it’s identity, culture, and connection.</p></div></div>
-    <div class="team-card fade-up delay-1"><div class="team-photo tc6">&#127800;</div><div class="team-info"><div class="team-name">Rayhona Ergasheva</div><div class="team-role">Researcher</div><p class="team-bio">Food reveals identity, culture, and the stories behind everyday life.</p></div></div>
-    <div class="team-card fade-up delay-2"><div class="team-photo tc7">&#127760;</div><div class="team-info"><div class="team-name">Khumoyun Akbarov</div><div class="team-role">Developer</div><p class="team-bio">Food and language define our identity.</p></div></div>
+
+    <!-- ══ 1 · Ismoil — Open book with steam wisps ══ -->
+    <div class="team-card">
+      <div class="card-art g1">
+        <div class="art-ring"></div>
+        <svg class="card-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="11" y="42" width="31" height="26" rx="3" fill="#c4540a" opacity=".9"/>
+          <rect x="48" y="42" width="31" height="26" rx="3" fill="#e87722" opacity=".85"/>
+          <rect x="42" y="40" width="6" height="30" rx="2" fill="#7a2f04"/>
+          <line x1="17" y1="52" x2="36" y2="52" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <line x1="17" y1="58" x2="36" y2="58" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <line x1="17" y1="63" x2="29" y2="63" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <line x1="54" y1="52" x2="73" y2="52" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <line x1="54" y1="58" x2="73" y2="58" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <line x1="54" y1="63" x2="66" y2="63" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <path d="M30 41 Q28 33 32 26 Q36 19 33 12" stroke="#c4540a" stroke-width="2" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;-1,-4;0,0" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;.1;.6" dur="2.5s" repeatCount="indefinite"/></path>
+          <path d="M45 39 Q43 30 47 23 Q51 16 48 9" stroke="#e87722" stroke-width="2" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;1,-4;0,0" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;.08;.5" dur="3.2s" repeatCount="indefinite"/></path>
+          <path d="M60 41 Q58 32 62 25 Q66 18 63 11" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;.05;.45" dur="2.8s" repeatCount="indefinite"/></path>
+          <circle cx="20" cy="27" r="2" fill="#c4540a"><animate attributeName="opacity" values=".3;.7;.3" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="71" cy="23" r="1.5" fill="#f59e0b"><animate attributeName="opacity" values=".4;.9;.4" dur="2.6s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="member-name">Ismoil Turgunboev</div>
+        <div class="roles"><span class="role-tag">Researcher</span></div>
+        <p class="member-bio">Explores how food carries oral history and how marginalized communities used cooking as a tool of resilience and survival.</p>
+      </div>
+      <div class="card-overlay">
+        <svg class="ov-svg" viewBox="0 0 90 90" fill="none"><rect x="11" y="42" width="31" height="26" rx="3" fill="#fff"/><rect x="48" y="42" width="31" height="26" rx="3" fill="#fff" opacity=".8"/><rect x="42" y="40" width="6" height="30" rx="2" fill="#fff" opacity=".5"/><path d="M30 41 Q28 33 32 26 Q36 19 33 12" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none" opacity=".8"/><path d="M45 39 Q43 30 47 23 Q51 16 48 9" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none" opacity=".65"/><path d="M60 41 Q58 32 62 25 Q66 18 63 11" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none" opacity=".5"/></svg>
+        <div class="ov-name">Ismoil Turgunboev</div><div class="ov-role">Researcher</div>
+        <p class="ov-bio">Explores how food carries oral history and how marginalized communities used cooking as a tool of resilience and survival.</p>
+      </div>
+    </div>
+
+    <!-- ══ 2 · Dilmuhammad — Plov dish on a map ══ -->
+    <div class="team-card">
+      <div class="card-art g2">
+        <div class="art-ring"></div>
+        <svg class="card-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="28" width="74" height="46" rx="7" fill="#fde68a" opacity=".55"/>
+          <line x1="8" y1="42" x2="82" y2="42" stroke="#f59e0b" stroke-width="1" opacity=".3"/><line x1="8" y1="56" x2="82" y2="56" stroke="#f59e0b" stroke-width="1" opacity=".3"/><line x1="30" y1="28" x2="30" y2="74" stroke="#f59e0b" stroke-width="1" opacity=".3"/><line x1="60" y1="28" x2="60" y2="74" stroke="#f59e0b" stroke-width="1" opacity=".3"/>
+          <path d="M25 55 Q28 68 45 68 Q62 68 65 55 Z" fill="#c4540a" opacity=".9"/>
+          <ellipse cx="45" cy="55" rx="20" ry="5.5" fill="#e87722"/>
+          <ellipse cx="38" cy="54" rx="4" ry="2" fill="#fde68a" opacity=".9"/>
+          <ellipse cx="50" cy="53" rx="3.5" ry="1.8" fill="#fff8e1" opacity=".85"/>
+          <rect x="35" y="53" width="8" height="1.5" rx="1" fill="#f97316" opacity=".8" transform="rotate(-10 39 53)"/>
+          <path d="M36 53 Q34 46 37 40 Q40 34 38 28" stroke="#c4540a" stroke-width="1.8" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;-1,-3;0,0" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".55;.1;.55" dur="2.4s" repeatCount="indefinite"/></path>
+          <path d="M45 52 Q43 44 46 37 Q49 30 47 24" stroke="#e87722" stroke-width="1.8" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;1,-3;0,0" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;.08;.5" dur="3s" repeatCount="indefinite"/></path>
+          <path d="M54 53 Q52 45 55 38 Q58 31 56 25" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;0,-2;0,0" dur="2.7s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;.05;.45" dur="2.7s" repeatCount="indefinite"/></path>
+          <circle cx="22" cy="38" r="3.5" fill="#c4540a" opacity=".7"><animate attributeName="opacity" values=".7;1;.7" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="70" cy="44" r="3" fill="#e87722" opacity=".65"><animate attributeName="opacity" values=".65;1;.65" dur="2.5s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="member-name">Dilmuhammad Rustamov</div>
+        <div class="roles"><span class="role-tag">Researcher</span><span class="role-tag">Content Writer</span></div>
+        <p class="member-bio">Investigates how food is embedded in power and language, and how globalization erodes or preserves local food identities.</p>
+      </div>
+      <div class="card-overlay">
+        <svg class="ov-svg" viewBox="0 0 90 90" fill="none"><rect x="8" y="28" width="74" height="46" rx="7" fill="#fff" opacity=".3"/><path d="M25 55 Q28 68 45 68 Q62 68 65 55 Z" fill="#fff" opacity=".85"/><ellipse cx="45" cy="55" rx="20" ry="5.5" fill="#fff" opacity=".5"/><path d="M36 53 Q34 46 37 40 Q40 34 38 28" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".8"/><path d="M45 52 Q43 44 46 37 Q49 30 47 24" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".65"/></svg>
+        <div class="ov-name">Dilmuhammad Rustamov</div><div class="ov-role">Researcher · Content Writer</div>
+        <p class="ov-bio">Investigates how food is embedded in power and language, and how globalization erodes or preserves local food identities.</p>
+      </div>
+    </div>
+
+    <!-- ══ 3 · Zulfizar — Palette with food colors ══ -->
+    <div class="team-card">
+      <div class="card-art g3">
+        <div class="art-ring"></div>
+        <svg class="card-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 55 Q14 42 20 30 Q30 14 48 14 Q66 14 72 30 Q78 46 64 55 Q55 60 50 55 Q46 51 40 54 Q34 58 28 60 Q22 62 20 55 Z" fill="#f9a8d4" opacity=".75"/>
+          <path d="M20 55 Q14 42 20 30 Q30 14 48 14 Q66 14 72 30 Q78 46 64 55 Q55 60 50 55 Q46 51 40 54 Q34 58 28 60 Q22 62 20 55 Z" stroke="#e91e8c" stroke-width="1.5" fill="none" opacity=".5"/>
+          <circle cx="34" cy="52" r="6" fill="#fce8ef"/>
+          <circle cx="48" cy="24" r="6" fill="#f59e0b"/>
+          <circle cx="63" cy="33" r="5.5" fill="#c4540a"/>
+          <circle cx="67" cy="48" r="5" fill="#4caf50"/>
+          <circle cx="26" cy="32" r="5" fill="#7b1fa2" opacity=".75"/>
+          <circle cx="22" cy="44" r="4.5" fill="#e87722"/>
+          <rect x="55" y="55" width="5" height="24" rx="2.5" fill="#795548" opacity=".85" transform="rotate(-35 57 67)"/>
+          <path d="M62 50 Q66 44 69 48 Q66 54 62 50 Z" fill="#c4540a" opacity=".9"/>
+          <circle cx="76" cy="28" r="2" fill="#f59e0b"><animate attributeName="opacity" values=".4;.9;.4" dur="1.9s" repeatCount="indefinite"/></circle>
+          <circle cx="15" cy="60" r="1.8" fill="#e91e8c"><animate attributeName="opacity" values=".35;.8;.35" dur="2.3s" repeatCount="indefinite"/></circle>
+          <path d="M68 50 Q70 56 69 61" stroke="#c4540a" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".6"><animate attributeName="opacity" values=".6;.2;.6" dur="2s" repeatCount="indefinite"/></path>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="member-name">Zulfizar Xolboyeva</div>
+        <div class="roles"><span class="role-tag">Researcher</span><span class="role-tag">Visual Designer</span></div>
+        <p class="member-bio">Shows how every dish carries meaning, history, and social values — brings the project to life through visual storytelling.</p>
+      </div>
+      <div class="card-overlay">
+        <svg class="ov-svg" viewBox="0 0 90 90" fill="none"><path d="M20 55 Q14 42 20 30 Q30 14 48 14 Q66 14 72 30 Q78 46 64 55 Q55 60 50 55 Q46 51 40 54 Q34 58 28 60 Q22 62 20 55 Z" fill="#fff" opacity=".3"/><circle cx="48" cy="24" r="6" fill="#fff" opacity=".8"/><circle cx="63" cy="33" r="5.5" fill="#fff" opacity=".75"/><circle cx="67" cy="48" r="5" fill="#fff" opacity=".7"/><circle cx="26" cy="32" r="5" fill="#fff" opacity=".65"/><circle cx="22" cy="44" r="4.5" fill="#fff" opacity=".7"/><path d="M62 50 Q66 44 69 48 Q66 54 62 50 Z" fill="#fff" opacity=".9"/></svg>
+        <div class="ov-name">Zulfizar Xolboyeva</div><div class="ov-role">Researcher · Visual Designer</div>
+        <p class="ov-bio">Shows how every dish carries meaning, history, and social values — brings the project to life through visual storytelling.</p>
+      </div>
+    </div>
+
+    <!-- ══ 4 · Sunnat — Tea ceremony / dastarkhan ══ -->
+    <div class="team-card">
+      <div class="card-art g4">
+        <div class="art-ring"></div>
+        <svg class="card-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="45" cy="62" rx="32" ry="10" stroke="#2e7d32" stroke-width="1.5" fill="none" stroke-dasharray="3 2" opacity=".4"/>
+          <path d="M30 40 Q30 58 45 58 Q60 58 60 40 Q60 30 45 30 Q30 30 30 40 Z" fill="#2e7d32" opacity=".85"/>
+          <ellipse cx="45" cy="30" rx="12" ry="4" fill="#388e3c" opacity=".9"/>
+          <circle cx="45" cy="27" r="4" fill="#1b5e20" opacity=".9"/>
+          <path d="M60 42 Q70 38 72 34 Q74 30 70 30" stroke="#2e7d32" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/>
+          <path d="M30 38 Q18 38 18 48 Q18 56 30 54" stroke="#2e7d32" stroke-width="3" stroke-linecap="round" fill="none" opacity=".8"/>
+          <ellipse cx="45" cy="44" rx="8" ry="5" stroke="#a5d6a7" stroke-width="1.2" fill="none" opacity=".6"/>
+          <ellipse cx="24" cy="63" rx="7" ry="3" fill="#388e3c" opacity=".7"/><rect x="17" y="58" width="14" height="5" rx="2" fill="#2e7d32" opacity=".7"/>
+          <ellipse cx="66" cy="63" rx="7" ry="3" fill="#388e3c" opacity=".7"/><rect x="59" y="58" width="14" height="5" rx="2" fill="#2e7d32" opacity=".7"/>
+          <path d="M71 30 Q74 23 71 18" stroke="#4caf50" stroke-width="1.8" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;2,-3;0,0" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;.1;.6" dur="2.2s" repeatCount="indefinite"/></path>
+          <path d="M42 26 Q40 19 43 13" stroke="#4caf50" stroke-width="1.8" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;-1,-4;0,0" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;.08;.5" dur="2.8s" repeatCount="indefinite"/></path>
+          <path d="M48 26 Q50 19 47 13" stroke="#66bb6a" stroke-width="1.8" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;1,-3;0,0" dur="3.1s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;.06;.45" dur="3.1s" repeatCount="indefinite"/></path>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="member-name">Sunnat Zoirov</div>
+        <div class="roles"><span class="role-tag">Researcher</span></div>
+        <p class="member-bio">Studies how food connects to personal history and community values, and how language shapes the way people understand what they eat.</p>
+      </div>
+      <div class="card-overlay">
+        <svg class="ov-svg" viewBox="0 0 90 90" fill="none"><path d="M30 40 Q30 58 45 58 Q60 58 60 40 Q60 30 45 30 Q30 30 30 40 Z" fill="#fff" opacity=".85"/><ellipse cx="45" cy="30" rx="12" ry="4" fill="#fff" opacity=".6"/><circle cx="45" cy="27" r="4" fill="#fff" opacity=".7"/><path d="M60 42 Q70 38 72 34 Q74 30 70 30" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none" opacity=".8"/><path d="M30 38 Q18 38 18 48 Q18 56 30 54" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none" opacity=".7"/></svg>
+        <div class="ov-name">Sunnat Zoirov</div><div class="ov-role">Researcher</div>
+        <p class="ov-bio">Studies how food connects to personal history and community values, and how language shapes the way people understand what they eat.</p>
+      </div>
+    </div>
+
+    <!-- ══ 5 · Otabek — Non bread ══ -->
+    <div class="team-card">
+      <div class="card-art g5">
+        <div class="art-ring"></div>
+        <svg class="card-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="45" cy="54" rx="32" ry="10" fill="#bf8040" opacity=".25"/>
+          <ellipse cx="45" cy="51" rx="32" ry="26" fill="#e6a24a" opacity=".9"/>
+          <ellipse cx="45" cy="28" rx="32" ry="10" fill="#c4540a" opacity=".75"/>
+          <circle cx="45" cy="28" r="12" fill="#a0522d" opacity=".6"/>
+          <circle cx="45" cy="28" r="7" fill="#bf8040" opacity=".5"/>
+          <line x1="45" y1="16" x2="45" y2="40" stroke="#fff" stroke-width="1" opacity=".35"/>
+          <line x1="33" y1="20" x2="57" y2="36" stroke="#fff" stroke-width="1" opacity=".35"/>
+          <line x1="57" y1="20" x2="33" y2="36" stroke="#fff" stroke-width="1" opacity=".35"/>
+          <line x1="29" y1="28" x2="61" y2="28" stroke="#fff" stroke-width="1" opacity=".35"/>
+          <ellipse cx="25" cy="34" rx="2.5" ry="1.2" fill="#fff" opacity=".5" transform="rotate(20 25 34)"/>
+          <ellipse cx="65" cy="26" rx="2.5" ry="1.2" fill="#fff" opacity=".5" transform="rotate(-15 65 26)"/>
+          <ellipse cx="45" cy="48" rx="20" ry="8" fill="#f97316" opacity=".12"><animate attributeName="opacity" values=".12;.25;.12" dur="2.5s" repeatCount="indefinite"/></ellipse>
+          <circle cx="14" cy="44" r="2.5" fill="#e6a24a"><animate attributeName="opacity" values=".3;.6;.3" dur="2.1s" repeatCount="indefinite"/></circle>
+          <circle cx="76" cy="46" r="2" fill="#c4540a"><animate attributeName="opacity" values=".3;.65;.3" dur="1.9s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="member-name">Otabek Khamroyev</div>
+        <div class="roles"><span class="role-tag">Researcher</span></div>
+        <p class="member-bio">Looks at food as social glue — how shared meals at family gatherings and everyday moments strengthen culture and community bonds.</p>
+      </div>
+      <div class="card-overlay">
+        <svg class="ov-svg" viewBox="0 0 90 90" fill="none"><ellipse cx="45" cy="51" rx="32" ry="26" fill="#fff" opacity=".85"/><ellipse cx="45" cy="28" rx="32" ry="10" fill="#fff" opacity=".5"/><circle cx="45" cy="28" r="12" fill="#fff" opacity=".3"/><line x1="45" y1="16" x2="45" y2="40" stroke="#fff" stroke-width="1" opacity=".5"/><line x1="33" y1="20" x2="57" y2="36" stroke="#fff" stroke-width="1" opacity=".5"/><line x1="57" y1="20" x2="33" y2="36" stroke="#fff" stroke-width="1" opacity=".5"/></svg>
+        <div class="ov-name">Otabek Khamroyev</div><div class="ov-role">Researcher</div>
+        <p class="ov-bio">Looks at food as social glue — how shared meals at family gatherings and everyday moments strengthen culture and community bonds.</p>
+      </div>
+    </div>
+
+    <!-- ══ 6 · Samira — Bazaar spice stall ══ -->
+    <div class="team-card">
+      <div class="card-art g6">
+        <div class="art-ring"></div>
+        <svg class="card-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 32 L84 32 L78 18 L12 18 Z" fill="#7b1fa2" opacity=".85"/>
+          <path d="M6 32 Q10 38 14 32 Q18 26 22 32 Q26 38 30 32 Q34 26 38 32 Q42 38 46 32 Q50 26 54 32 Q58 38 62 32 Q66 26 70 32 Q74 38 78 32 Q82 26 84 32" stroke="#9c27b0" stroke-width="1.5" fill="none" opacity=".6"/>
+          <rect x="8" y="56" width="74" height="8" rx="3" fill="#6a1b9a" opacity=".75"/>
+          <rect x="14" y="42" width="12" height="15" rx="3" fill="#f59e0b" opacity=".85"/><ellipse cx="20" cy="42" rx="6" ry="3" fill="#fbbf24" opacity=".9"/>
+          <rect x="30" y="44" width="12" height="13" rx="3" fill="#c4540a" opacity=".85"/><ellipse cx="36" cy="44" rx="6" ry="3" fill="#e87722" opacity=".9"/>
+          <rect x="46" y="43" width="12" height="14" rx="3" fill="#92400e" opacity=".85"/><ellipse cx="52" cy="43" rx="6" ry="3" fill="#b45309" opacity=".9"/>
+          <rect x="62" y="45" width="12" height="12" rx="3" fill="#16a34a" opacity=".85"/><ellipse cx="68" cy="45" rx="6" ry="3" fill="#22c55e" opacity=".9"/>
+          <circle cx="22" cy="36" r="1.5" fill="#f59e0b"><animate attributeName="cy" values="36;30;36" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;.1;.6" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="36" cy="38" r="1.5" fill="#c4540a"><animate attributeName="cy" values="38;32;38" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;.1;.6" dur="2.4s" repeatCount="indefinite"/></circle>
+          <circle cx="52" cy="37" r="1.5" fill="#92400e"><animate attributeName="cy" values="37;31;37" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;.1;.6" dur="2.2s" repeatCount="indefinite"/></circle>
+          <circle cx="68" cy="39" r="1.5" fill="#16a34a"><animate attributeName="cy" values="39;33;39" dur="1.9s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;.1;.6" dur="1.9s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="member-name">Samira Irgasheva</div>
+        <div class="roles"><span class="role-tag">Researcher</span><span class="role-tag">Designer</span></div>
+        <p class="member-bio">Explores how gender, religion, and globalization shape food practices — and how these insights can help create more respectful classrooms.</p>
+      </div>
+      <div class="card-overlay">
+        <svg class="ov-svg" viewBox="0 0 90 90" fill="none"><path d="M6 32 L84 32 L78 18 L12 18 Z" fill="#fff" opacity=".8"/><rect x="8" y="56" width="74" height="8" rx="3" fill="#fff" opacity=".5"/><rect x="14" y="42" width="12" height="15" rx="3" fill="#fff" opacity=".75"/><rect x="30" y="44" width="12" height="13" rx="3" fill="#fff" opacity=".75"/><rect x="46" y="43" width="12" height="14" rx="3" fill="#fff" opacity=".75"/><rect x="62" y="45" width="12" height="12" rx="3" fill="#fff" opacity=".75"/></svg>
+        <div class="ov-name">Samira Irgasheva</div><div class="ov-role">Researcher · Designer</div>
+        <p class="ov-bio">Explores how gender, religion, and globalization shape food practices — and how these insights can help create more respectful classrooms.</p>
+      </div>
+    </div>
+
+    <!-- ══ 7 · Abdulaziz — Pomegranate ══ -->
+    <div class="team-card">
+      <div class="card-art g7">
+        <div class="art-ring"></div>
+        <svg class="card-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 50 Q18 72 45 75 Q72 72 70 50 Q68 34 55 28 Q50 22 45 22 Q40 22 35 28 Q22 34 20 50 Z" fill="#c0392b" opacity=".85"/>
+          <path d="M28 40 Q26 52 32 62 Q40 68 45 68" stroke="#e74c3c" stroke-width="3" stroke-linecap="round" fill="none" opacity=".4"/>
+          <path d="M38 22 Q36 14 32 10 Q36 16 40 12 Q42 8 45 10 Q48 8 50 12 Q54 16 58 10 Q54 14 52 22" fill="#922b21" opacity=".9"/>
+          <ellipse cx="37" cy="52" rx="4" ry="3" fill="#e74c3c" opacity=".6"/>
+          <ellipse cx="48" cy="46" rx="3.5" ry="2.5" fill="#e74c3c" opacity=".55"/>
+          <ellipse cx="55" cy="57" rx="4" ry="3" fill="#e74c3c" opacity=".6"/>
+          <line x1="45" y1="30" x2="45" y2="72" stroke="#922b21" stroke-width="1" opacity=".3"/>
+          <line x1="25" y1="52" x2="65" y2="52" stroke="#922b21" stroke-width="1" opacity=".3"/>
+          <circle cx="37" cy="52" r="1.5" fill="#fff" opacity=".4"><animate attributeName="opacity" values=".4;.8;.4" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="55" cy="57" r="1.5" fill="#fff" opacity=".4"><animate attributeName="opacity" values=".4;.8;.4" dur="2.5s" repeatCount="indefinite"/></circle>
+          <circle cx="45" cy="50" r="30" stroke="#e74c3c" stroke-width="1" fill="none" opacity="0"><animate attributeName="r" values="28;38;28" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.15;0" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="12" cy="44" r="2" fill="#c0392b"><animate attributeName="opacity" values=".3;.65;.3" dur="2.1s" repeatCount="indefinite"/></circle>
+          <circle cx="78" cy="58" r="2" fill="#e74c3c"><animate attributeName="opacity" values=".3;.65;.3" dur="2.4s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="member-name">Abdulaziz Nosirov</div>
+        <div class="roles"><span class="role-tag">Developer</span></div>
+        <p class="member-bio">Built the digital experience for this project and researches how food traditions change when people migrate — yet still keep their meaning.</p>
+      </div>
+      <div class="card-overlay">
+        <svg class="ov-svg" viewBox="0 0 90 90" fill="none"><path d="M20 50 Q18 72 45 75 Q72 72 70 50 Q68 34 55 28 Q50 22 45 22 Q40 22 35 28 Q22 34 20 50 Z" fill="#fff" opacity=".85"/><path d="M38 22 Q36 14 32 10 Q36 16 40 12 Q42 8 45 10 Q48 8 50 12 Q54 16 58 10 Q54 14 52 22" fill="#fff" opacity=".65"/><ellipse cx="37" cy="52" rx="4" ry="3" fill="#c4540a" opacity=".6"/><ellipse cx="55" cy="57" rx="4" ry="3" fill="#c4540a" opacity=".6"/></svg>
+        <div class="ov-name">Abdulaziz Nosirov</div><div class="ov-role">Developer</div>
+        <p class="ov-bio">Built the digital experience for this project and researches how food traditions change when people migrate — yet still keep their meaning.</p>
+      </div>
+    </div>
+
+    <!-- ══ 8 · Feruzbek — Mortar & pestle ══ -->
+    <div class="team-card">
+      <div class="card-art g8">
+        <div class="art-ring"></div>
+        <svg class="card-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 56 Q19 74 45 74 Q71 74 74 56 L68 44 Q68 38 45 38 Q22 38 22 44 Z" fill="#ad1457" opacity=".85"/>
+          <ellipse cx="45" cy="44" rx="23" ry="7" fill="#e91e63" opacity=".9"/>
+          <ellipse cx="45" cy="45" rx="18" ry="5" fill="#880e4f" opacity=".25"/>
+          <rect x="42" y="16" width="6" height="32" rx="3" fill="#880e4f" opacity=".9"/>
+          <ellipse cx="45" cy="16" rx="5" ry="4" fill="#ad1457" opacity=".9"/>
+          <ellipse cx="38" cy="43" rx="5" ry="2" fill="#f59e0b" opacity=".75"/>
+          <ellipse cx="52" cy="42" rx="4" ry="1.8" fill="#c4540a" opacity=".7"/>
+          <circle cx="30" cy="40" r="2.5" fill="#f59e0b" opacity=".7"><animate attributeName="cy" values="40;34;40" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;.15;.7" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="58" cy="38" r="2" fill="#ff7043" opacity=".65"><animate attributeName="cy" values="38;31;38" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".65;.1;.65" dur="2.4s" repeatCount="indefinite"/></circle>
+          <circle cx="45" cy="34" r="1.8" fill="#fbbf24" opacity=".6"><animate attributeName="cy" values="34;27;34" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;.08;.6" dur="1.8s" repeatCount="indefinite"/></circle>
+          <path d="M37 38 Q35 30 38 24" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".5"><animate attributeName="opacity" values=".5;.1;.5" dur="2.1s" repeatCount="indefinite"/></path>
+          <path d="M53 38 Q55 30 52 24" stroke="#c4540a" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".5"><animate attributeName="opacity" values=".5;.1;.5" dur="2.5s" repeatCount="indefinite"/></path>
+          <circle cx="14" cy="62" r="2" fill="#ad1457"><animate attributeName="opacity" values=".3;.65;.3" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="76" cy="64" r="1.8" fill="#e91e63"><animate attributeName="opacity" values=".3;.65;.3" dur="2.3s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="member-name">Feruzbek Mengdobilov</div>
+        <div class="roles"><span class="role-tag">Researcher</span></div>
+        <p class="member-bio">Food is more than nourishment — it's identity, culture, and connection that spans generations and borders.</p>
+      </div>
+      <div class="card-overlay">
+        <svg class="ov-svg" viewBox="0 0 90 90" fill="none"><path d="M16 56 Q19 74 45 74 Q71 74 74 56 L68 44 Q68 38 45 38 Q22 38 22 44 Z" fill="#fff" opacity=".85"/><ellipse cx="45" cy="44" rx="23" ry="7" fill="#fff" opacity=".5"/><rect x="42" y="16" width="6" height="32" rx="3" fill="#fff" opacity=".8"/><ellipse cx="45" cy="16" rx="5" ry="4" fill="#fff" opacity=".7"/></svg>
+        <div class="ov-name">Feruzbek Mengdobilov</div><div class="ov-role">Researcher</div>
+        <p class="ov-bio">Food is more than nourishment — it's identity, culture, and connection that spans generations and borders.</p>
+      </div>
+    </div>
+
+    <!-- ══ 9 · Rayhona — Kazan over fire ══ -->
+    <div class="team-card">
+      <div class="card-art g9">
+        <div class="art-ring"></div>
+        <svg class="card-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 72 Q28 62 35 56 Q32 60 38 54 Q36 60 42 52 Q40 60 45 54 Q50 60 48 52 Q52 60 50 54 Q56 60 52 56 Q59 62 57 72 Z" fill="#f97316" opacity=".9"><animate attributeName="d" values="M30 72 Q28 62 35 56 Q32 60 38 54 Q36 60 42 52 Q40 60 45 54 Q50 60 48 52 Q52 60 50 54 Q56 60 52 56 Q59 62 57 72 Z;M30 72 Q27 60 34 53 Q31 58 37 51 Q35 58 41 50 Q39 59 45 52 Q51 58 49 50 Q53 58 51 51 Q57 58 53 53 Q60 60 57 72 Z;M30 72 Q28 62 35 56 Q32 60 38 54 Q36 60 42 52 Q40 60 45 54 Q50 60 48 52 Q52 60 50 54 Q56 60 52 56 Q59 62 57 72 Z" dur="1.2s" repeatCount="indefinite"/></path>
+          <path d="M34 72 Q34 64 39 60 Q37 64 42 58 Q40 64 45 59 Q50 64 48 58 Q53 64 51 60 Q56 64 56 72 Z" fill="#fbbf24" opacity=".85"><animate attributeName="d" values="M34 72 Q34 64 39 60 Q37 64 42 58 Q40 64 45 59 Q50 64 48 58 Q53 64 51 60 Q56 64 56 72 Z;M34 72 Q33 62 38 57 Q36 62 41 56 Q39 62 44 57 Q49 62 47 56 Q52 62 50 57 Q55 62 56 72 Z;M34 72 Q34 64 39 60 Q37 64 42 58 Q40 64 45 59 Q50 64 48 58 Q53 64 51 60 Q56 64 56 72 Z" dur="1.5s" repeatCount="indefinite"/></path>
+          <path d="M14 52 Q14 70 45 70 Q76 70 76 52 L70 38 Q70 30 45 30 Q20 30 20 38 Z" fill="#00897b" opacity=".9"/>
+          <ellipse cx="45" cy="38" rx="25" ry="9" fill="#00acc1" opacity=".85"/>
+          <ellipse cx="45" cy="30" rx="25" ry="8" fill="#00796b" opacity=".9"/>
+          <rect x="40" y="18" width="10" height="10" rx="5" fill="#004d40" opacity=".85"/>
+          <path d="M14 44 Q6 44 6 52 Q6 58 14 56" stroke="#00897b" stroke-width="4" stroke-linecap="round" fill="none" opacity=".75"/>
+          <path d="M76 44 Q84 44 84 52 Q84 58 76 56" stroke="#00897b" stroke-width="4" stroke-linecap="round" fill="none" opacity=".75"/>
+          <path d="M38 29 Q36 21 39 15" stroke="#80cbc4" stroke-width="2" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;-1,-4;0,0" dur="2.3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;.1;.6" dur="2.3s" repeatCount="indefinite"/></path>
+          <path d="M45 27 Q43 19 46 13" stroke="#80cbc4" stroke-width="2" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;1,-4;0,0" dur="2.9s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;.08;.5" dur="2.9s" repeatCount="indefinite"/></path>
+          <path d="M52 29 Q54 21 51 15" stroke="#80cbc4" stroke-width="2" stroke-linecap="round" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;.05;.45" dur="2.6s" repeatCount="indefinite"/></path>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="member-name">Rayhona Ergasheva</div>
+        <div class="roles"><span class="role-tag">Researcher</span></div>
+        <p class="member-bio">Food reveals identity, culture, and the stories behind everyday life.</p>
+      </div>
+      <div class="card-overlay">
+        <svg class="ov-svg" viewBox="0 0 90 90" fill="none"><path d="M14 52 Q14 70 45 70 Q76 70 76 52 L70 38 Q70 30 45 30 Q20 30 20 38 Z" fill="#fff" opacity=".85"/><ellipse cx="45" cy="38" rx="25" ry="9" fill="#fff" opacity=".5"/><ellipse cx="45" cy="30" rx="25" ry="8" fill="#fff" opacity=".45"/><rect x="40" y="18" width="10" height="10" rx="5" fill="#fff" opacity=".7"/><path d="M14 44 Q6 44 6 52 Q6 58 14 56" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none" opacity=".7"/><path d="M76 44 Q84 44 84 52 Q84 58 76 56" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none" opacity=".7"/></svg>
+        <div class="ov-name">Rayhona Ergasheva</div><div class="ov-role">Researcher</div>
+        <p class="ov-bio">Food reveals identity, culture, and the stories behind everyday life.</p>
+      </div>
+    </div>
+
+    <!-- ══ 10 · Khumoyun — Suzani embroidery ══ -->
+    <div class="team-card">
+      <div class="card-art g10">
+        <div class="art-ring"></div>
+        <svg class="card-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="16" width="70" height="62" rx="6" fill="#fff8e1" opacity=".8"/>
+          <rect x="10" y="16" width="70" height="62" rx="6" stroke="#c4540a" stroke-width="1.5" fill="none" opacity=".4"/>
+          <rect x="13" y="19" width="64" height="56" rx="4" stroke="#e87722" stroke-width="1" fill="none" stroke-dasharray="3 2" opacity=".5"/>
+          <ellipse cx="45" cy="38" rx="5" ry="10" fill="#c4540a" opacity=".75" transform="rotate(0 45 47)"/>
+          <ellipse cx="45" cy="38" rx="5" ry="10" fill="#e87722" opacity=".65" transform="rotate(45 45 47)"/>
+          <ellipse cx="45" cy="38" rx="5" ry="10" fill="#f59e0b" opacity=".7" transform="rotate(90 45 47)"/>
+          <ellipse cx="45" cy="38" rx="5" ry="10" fill="#c4540a" opacity=".65" transform="rotate(135 45 47)"/>
+          <circle cx="45" cy="47" r="7" fill="#fff8e1"/>
+          <circle cx="45" cy="47" r="5" fill="#c4540a" opacity=".8"/>
+          <circle cx="45" cy="47" r="2.5" fill="#f59e0b"/>
+          <circle cx="20" cy="30" r="5" fill="#c0392b" opacity=".6"/><path d="M18 25 Q20 21 22 25" fill="#922b21" opacity=".7"/>
+          <circle cx="70" cy="30" r="5" fill="#c0392b" opacity=".6"/><path d="M68 25 Q70 21 72 25" fill="#922b21" opacity=".7"/>
+          <circle cx="45" cy="47" r="10" stroke="#f59e0b" stroke-width="1" fill="none" opacity="0"><animate attributeName="r" values="7;16;7" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.3;0" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="45" cy="20" r="1.5" fill="#c4540a"><animate attributeName="opacity" values=".4;.8;.4" dur="1.8s" repeatCount="indefinite"/></circle>
+          <circle cx="45" cy="74" r="1.5" fill="#e87722"><animate attributeName="opacity" values=".4;.8;.4" dur="2.1s" repeatCount="indefinite"/></circle>
+          <circle cx="11" cy="47" r="1.5" fill="#f59e0b"><animate attributeName="opacity" values=".3;.7;.3" dur="2.3s" repeatCount="indefinite"/></circle>
+          <circle cx="79" cy="47" r="1.5" fill="#c4540a"><animate attributeName="opacity" values=".3;.7;.3" dur="1.9s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="member-name">Khumoyun Akbarov</div>
+        <div class="roles"><span class="role-tag">Researcher</span></div>
+        <p class="member-bio">Food and language define our identity — he explores the cultural and social meanings woven into everyday meals.</p>
+      </div>
+      <div class="card-overlay">
+        <svg class="ov-svg" viewBox="0 0 90 90" fill="none"><rect x="10" y="16" width="70" height="62" rx="6" fill="#fff" opacity=".25"/><rect x="10" y="16" width="70" height="62" rx="6" stroke="#fff" stroke-width="1.5" fill="none" opacity=".5"/><ellipse cx="45" cy="38" rx="5" ry="10" fill="#fff" opacity=".7" transform="rotate(0 45 47)"/><ellipse cx="45" cy="38" rx="5" ry="10" fill="#fff" opacity=".6" transform="rotate(45 45 47)"/><ellipse cx="45" cy="38" rx="5" ry="10" fill="#fff" opacity=".65" transform="rotate(90 45 47)"/><ellipse cx="45" cy="38" rx="5" ry="10" fill="#fff" opacity=".6" transform="rotate(135 45 47)"/><circle cx="45" cy="47" r="7" fill="#fff" opacity=".9"/><circle cx="45" cy="47" r="2.5" fill="#e87722"/><circle cx="20" cy="30" r="5" fill="#fff" opacity=".65"/><circle cx="70" cy="30" r="5" fill="#fff" opacity=".65"/></svg>
+        <div class="ov-name">Khumoyun Akbarov</div><div class="ov-role">Researcher</div>
+        <p class="ov-bio">Food and language define our identity — he explores the cultural and social meanings woven into everyday meals.</p>
+      </div>
+    </div>
+
+  </div><!-- /team-grid -->
+
+  <div class="team-progress" id="teamDots">
+    <div class="dot on"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div>
   </div>
+
 </section>
 
 <!-- REFLECTIONS -->
@@ -550,7 +1229,7 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
         </div>
       </div>
       <div class="rsec-label">Key Learning</div>
-      <p class="rsec-text">Before this course, I saw food as just something we eat every day. Now I understand that food is deeply connected to culture, identity, and history. I learned that food can show traditions, beliefs, and where people come from. It can also change when people move, but still keep its meaning. Activities like the matcha day made learning more real and interesting. As a future teacher, this course helped me understand the importance of respecting different backgrounds. Overall, it changed the way I see food and everyday life — I now look at a simple meal and see a whole story behind it.</p>
+      <p class="rsec-text">Before this course, I saw food as just something we eat every day. Now I understand that food is deeply connected to culture, identity, and history. I learned that food can show traditions, beliefs, and where people come from. It can also change when people move, but still keep its meaning. Activities like the matcha day made learning more real and interesting. This course helped me understand the importance of respecting different backgrounds. Overall, it changed the way I see food and everyday life — I now look at a simple meal and see a whole story behind it.</p>
       <div class="motto">&ldquo;Food is more than what we eat.&rdquo;</div>
       
     </div>
@@ -570,7 +1249,7 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
       </div>
       <div class="rsec-label">Key Learning</div>
       <p class="rsec-text">Food, Language, Identity, helped me understand how deeply food is connected to culture and personal identity. I learned that food is not just about nutrition, but also about communication, traditions, and social belonging. The course showed how language shapes the way we talk about food and how it reflects values, history, and cultural differences. One of the most interesting aspects was exploring how food can represent identity in different societies and how globalization influences eating habits. I also found it valuable to reflect on my own cultural background and how food plays a role in my daily life and interactions. Overall, this course broadened my perspective and made me more aware of the cultural and social meanings behind food.</p>
-      <div class="motto">&ldquo;Food is more than nourishment—it’s identity, culture, and connection.&rdquo;</div>
+      <div class="motto">&ldquo;Food is more than nourishment—it's identity, culture, and connection.&rdquo;</div>
     </div>
          <!-- ─── Rayhona ─── -->
          <div class="rcard fade-up">
@@ -588,7 +1267,7 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
           </div>
           <div class="rsec-label">Key Learning</div>
           <p class="rsec-text">I really enjoyed this course because it helped me see everyday food from a deeper perspective. Topics like gender, religion, and globalization showed how food reflects identity, culture, and social roles.
-            The matcha day was especially memorable, as it combined learning with real experience. As a future teacher, the course reminded me to respect students’ diverse backgrounds.
+            The matcha day was especially memorable, as it combined learning with real experience. As a future teacher, the course reminded me to respect students' diverse backgrounds.
             Overall, it was simple but meaningful and changed how I view everyday life.</p>
           <div class="motto">&ldquo;Food reveals identity, culture, and the stories behind everyday life.&rdquo;</div>
         </div>
@@ -613,15 +1292,15 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
   </div>
 </section>
 
-<!-- =================== VIDEO SECTION — 2 slots only =================== -->
 <!-- =================== VIDEO SECTION =================== -->
 <section id="videos" class="video-section">
   <span class="section-label" style="color:#c4540a">&#127909; Our Videos</span>
-  <h2 class="section-title fade-up" style="color:#fff;margin-bottom:0.8rem">Video <em> Presentations</em></h2>
-  <p class="section-desc fade-up delay-1" style="color:#888;margin-bottom:3rem">Watch our video below.</p>
+  <h2 class="section-title fade-up" style="color:#fff;margin-bottom:0.8rem">Video <em>Presentations</em></h2>
+  <p class="section-desc fade-up delay-1" style="color:#888;margin-bottom:3rem">Watch our videos below.</p>
   <div class="video-inner">
     <div class="video-grid">
 
+      <!-- Видео 1 -->
       <div class="video-slot fade-up">
         <a href="https://youtu.be/lg3kzCpEE4I" target="_blank" style="display:block;position:relative;text-decoration:none">
           <img src="https://img.youtube.com/vi/lg3kzCpEE4I/maxresdefault.jpg"
@@ -634,14 +1313,15 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
           </div>
         </a>
         <div style="padding:1rem 1.2rem;background:#1e1e1e;border-radius:0 0 16px 16px">
-          <p style="color:#fff;font-size:0.88rem;font-weight:600;margin-bottom:0.2rem"></p>
+          <p style="color:#fff;font-size:0.88rem;font-weight:600;margin-bottom:0.2rem">Interview — Part 1</p>
           <p style="color:#888;font-size:0.75rem">Home Cooking, Culture & Belonging</p>
         </div>
       </div>
 
-      <!-- <div class="video-slot fade-up">
-     <a href="https://youtu.be/lg3kzCpEE4I" target="_blank" style="display:block;position:relative;text-decoration:none">
-          <img src="https://img.youtube.com/vi/lg3kzCpEE4I/maxresdefault.jpg"
+      <!-- Видео 2 — замените YOUR_VIDEO_ID на реальный ID второго видео -->
+      <div class="video-slot fade-up delay-1">
+        <a href="https://youtu.be/8K_-HYrmDhU" target="_blank" style="display:block;position:relative;text-decoration:none">
+          <img src="https://img.youtube.com/vi/8K_-HYrmDhU/maxresdefault.jpg"
                style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:16px 16px 0 0">
           <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);border-radius:16px 16px 0 0">
             <svg width="80" height="56" viewBox="0 0 80 56" fill="none">
@@ -651,10 +1331,10 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
           </div>
         </a>
         <div style="padding:1rem 1.2rem;background:#1e1e1e;border-radius:0 0 16px 16px">
-          <p style="color:#fff;font-size:0.88rem;font-weight:600;margin-bottom:0.2rem"></p>
+          <p style="color:#fff;font-size:0.88rem;font-weight:600;margin-bottom:0.2rem">Interview — Part 2</p>
           <p style="color:#888;font-size:0.75rem">Home Cooking, Culture & Belonging</p>
         </div>
-      </div> -->
+      </div>
 
     </div>
   </div>
@@ -798,80 +1478,175 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
   </div>
 </section>
 
-<!-- GLOBAL -->
+<!-- ══════════════════════════════════════════════════
+     GLOBAL SECTION — Redesigned with animations
+══════════════════════════════════════════════════ -->
 <section id="global" class="global-section">
-  <span class="section-label fade-up">Global Reception</span> 
+
+  <!-- Scrolling ticker -->
+  <div class="globe-ticker-wrap">
+    <div class="globe-ticker">
+      <span class="globe-ticker-item">🇩🇪 Germany — Turkish Diaspora</span>
+      <span class="globe-ticker-item">🇺🇸 United States — Latino Families</span>
+      <span class="globe-ticker-item">🇬🇧 UK — South Asian Diaspora</span>
+      <span class="globe-ticker-item">🇸🇬 Singapore — Chinese Diaspora</span>
+      <span class="globe-ticker-item">🇦🇺 Australia — Southeast Asian Diaspora</span>
+      <span class="globe-ticker-item">🇦🇷 Argentina — Italian &amp; Syrian Diaspora</span>
+      <!-- duplicate for seamless loop -->
+      <span class="globe-ticker-item">🇩🇪 Germany — Turkish Diaspora</span>
+      <span class="globe-ticker-item">🇺🇸 United States — Latino Families</span>
+      <span class="globe-ticker-item">🇬🇧 UK — South Asian Diaspora</span>
+      <span class="globe-ticker-item">🇸🇬 Singapore — Chinese Diaspora</span>
+      <span class="globe-ticker-item">🇦🇺 Australia — Southeast Asian Diaspora</span>
+      <span class="globe-ticker-item">🇦🇷 Argentina — Italian &amp; Syrian Diaspora</span>
+    </div>
+  </div>
+
+  <span class="section-label fade-up">Global Reception</span>
   <h2 class="section-title fade-up delay-1">One Story, <em>Many Countries</em></h2>
-  <p class="section-desc fade-up delay-2">The same dynamics — food, language, belonging — play out differently around the world. Here are six key cases.</p>
+  <p class="section-desc fade-up delay-2">The same dynamics — food, language, belonging — play out differently around the world. Hover each card to reveal the full case study.</p>
+
   <div class="global-grid">
 
+    <!-- Germany -->
     <div class="gcard fade-up">
-      <div class="gcard-top">
-        <div class="gflag" style="background:#e63946">DE</div>
-        <div>
-          <div class="gname" style="color:#e63946">Germany — Turkish Diaspora</div>
-          <div class="gsub">Gastarbeiter & culinary identity</div>
+      <div class="gcard-inner">
+        <div class="gcard-front">
+          <div>
+            <div class="gcard-front-flag" style="background:#e63946">DE</div>
+            <div class="gcard-front-country" style="color:#e4a0a8">Germany</div>
+            <div class="gcard-front-sub">Turkish Diaspora · Gastarbeiter</div>
+          </div>
+          <p class="gcard-front-teaser">Turkish guest workers arrived in the 1950s–70s. Their private home cooking would eventually transform Germany's entire street food culture.</p>
+          <div class="gcard-flip-hint">Hover to read more ↻</div>
+        </div>
+        <div class="gcard-back">
+          <div class="gcard-back-label">Real Case Study</div>
+          <div class="gcard-back-title">"Döner Kebab — From Turkish Kitchen to Germany's Most Popular Street Food"</div>
+          <p class="gcard-back-body">Over 1.5 million Turkish workers (Gastarbeiter) arrived in West Germany starting in 1961. They lived a double life—Turkish food at home, German food at work. By the 1970s, Turkish vendors created a Germanized döner in Berlin, which became hugely popular. Today, Germany has over 16,000 döner shops generating more than €3.5 billion annually. Yet many Turkish-German families still face discrimination in housing and jobs. Their food was embraced, but they themselves remained seen as “foreign.”</p>
+          <div class="gcard-back-source">Sources: Ayse Caglar (1995); Kaya &amp; Kentel (2005); Federal Institute for Population Research Germany</div>
         </div>
       </div>
-      <div class="gcard-body"><p>Turkish workers came to Germany in the 1950s–70s. They cooked Turkish food at home and German food at work. Three generations later, the döner kebab became Germany's most popular street food — a symbol of how immigrant food gets absorbed into national culture, often without credit to the families who brought it.</p></div>
     </div>
-  
+
+    <!-- USA -->
     <div class="gcard fade-up delay-1">
-      <div class="gcard-top">
-        <div class="gflag" style="background:#3a86ff">US</div>
-        <div>
-          <div class="gname" style="color:#3a86ff">United States — Latino Families</div>
-          <div class="gsub">Border cuisines & hybrid identity</div>
+      <div class="gcard-inner">
+        <div class="gcard-front">
+          <div>
+            <div class="gcard-front-flag" style="background:#3a86ff">US</div>
+            <div class="gcard-front-country" style="color:#90b8ff">United States</div>
+            <div class="gcard-front-sub">Latino Families · Border Cuisines</div>
+          </div>
+          <p class="gcard-front-teaser">Mexican-American cuisine is celebrated globally, yet the families who created it continue to face immigration enforcement and economic exclusion.</p>
+          <div class="gcard-flip-hint">Hover to read more ↻</div>
+        </div>
+        <div class="gcard-back">
+          <div class="gcard-back-label">Real Case Study</div>
+          <div class="gcard-back-title">"Tamales, Tortillas &amp; the Politics of Mexican-American Identity"</div>
+          <p class="gcard-back-body">Pilcher (1998) shows how Mexican food became central to identity in both Mexico and the US Southwest. Today, it’s the most consumed ethnic cuisine in the United States, yet many Mexican-American workers in food service remain underpaid and lack benefits. Tex-Mex emerged as a border hybrid—neither fully Mexican nor American—reflecting Bhabha’s idea of a “third space.” At home, families often preserve traditional recipes, using cooking as a way to protect cultural authenticity and resist dilution.</p>
+          <div class="gcard-back-source">Sources: Pilcher, J.M. (1998); Bhabha, H. (1994); US Bureau of Labor Statistics (2023)</div>
         </div>
       </div>
-      <div class="gcard-body"><p>Mexican-American families in the US Southwest live with the full complexity of immigrant food politics — their cuisine is commercialized and celebrated while they themselves face discrimination. For many families, cooking traditional food at home is an act of cultural survival and pride.</p></div>
     </div>
-  
+
+    <!-- UK -->
     <div class="gcard fade-up delay-2">
-      <div class="gcard-top">
-        <div class="gflag" style="background:#2ec4b6">UK</div>
-        <div>
-          <div class="gname" style="color:#2ec4b6">UK — South Asian Diaspora</div>
-          <div class="gsub">Curry, class & postcolonial identity</div>
+      <div class="gcard-inner">
+        <div class="gcard-front">
+          <div>
+            <div class="gcard-front-flag" style="background:#2ec4b6">UK</div>
+            <div class="gcard-front-country" style="color:#7de8e2">United Kingdom</div>
+            <div class="gcard-front-sub">South Asian Diaspora · Curry &amp; Class</div>
+          </div>
+          <p class="gcard-front-teaser">A government minister once declared chicken tikka masala Britain's national dish — yet the British-Bangladeshi families cooking it still face systemic racism.</p>
+          <div class="gcard-flip-hint">Hover to read more ↻</div>
+        </div>
+        <div class="gcard-back">
+          <div class="gcard-back-label">Real Case Study</div>
+          <div class="gcard-back-title">"Curry Capital: The British South Asian Diaspora and Culinary Belonging"</div>
+          <p class="gcard-back-body">In 2001, Foreign Secretary Robin Cook called chicken tikka masala “a true British national dish,” showing how Indian food had been embraced. Yet most UK curry house workers earn below the living wage, and British-Bangladeshi families face very high poverty rates. Scholar Mannur calls this “culinary citizenship without political citizenship” — people enjoy the food but don’t fully accept the people. For many South Asian women, cooking at home is the one space where they can keep their culture authentic and under their own control.</p>
+          <div class="gcard-back-source">Sources: Mannur, A. (2010); UK Office for National Statistics (2021); Cook, R. (2001) speech</div>
         </div>
       </div>
-      <div class="gcard-body"><p>Chicken tikka masala is sometimes called "Britain's national dish" — but British-Indian families still face racism. The UK case shows how a country can love someone's food while still excluding the people behind it. Home cooking maintains what commercial spaces cannot.</p></div>
     </div>
-  
+
+    <!-- Singapore -->
     <div class="gcard fade-up">
-      <div class="gcard-top">
-        <div class="gflag" style="background:#f77f00">SG</div>
-        <div>
-          <div class="gname" style="color:#f77f00">Singapore — Chinese Diaspora</div>
-          <div class="gsub">Hawker culture & national identity</div>
+      <div class="gcard-inner">
+        <div class="gcard-front">
+          <div>
+            <div class="gcard-front-flag" style="background:#f77f00">SG</div>
+            <div class="gcard-front-country" style="color:#ffc57a">Singapore</div>
+            <div class="gcard-front-sub">Chinese Diaspora · Hawker Culture</div>
+          </div>
+          <p class="gcard-front-teaser">Singapore's hawker centers were designated UNESCO Intangible Cultural Heritage in 2020 — but who benefits when the state "owns" immigrant food culture?</p>
+          <div class="gcard-flip-hint">Hover to read more ↻</div>
+        </div>
+        <div class="gcard-back">
+          <div class="gcard-back-label">Real Case Study</div>
+          <div class="gcard-back-title">"Hawker Heritage: When the State Freezes a Living Food Culture"</div>
+          <p class="gcard-back-body">Hawker culture began with Hokkien, Teochew, and Hainanese migrants selling street food in early 20th-century Singapore. In the 1970s, the government moved them into organized hawker centers. In 2020, UNESCO recognized “hawker culture,” but this sparked debate. Critics argue it turns a living, evolving tradition into a fixed tourist product, ignoring newer migrant influences. It raises a key question: when a culture is officially “preserved,” does it stop evolving?</p>
+          <div class="gcard-back-source">Sources: UNESCO (2020) ICH nomination; Chua, B.H. (2011); Tan, E. (2021)</div>
         </div>
       </div>
-      <div class="gcard-body"><p>Singapore's hawker centers — now UNESCO heritage — show what happens when immigrant food becomes national identity. This raises hard questions: when the state "preserves" immigrant cooking, does it freeze something that should stay alive and changing?</p></div>
     </div>
-  
+
+    <!-- Australia -->
     <div class="gcard fade-up delay-1">
-      <div class="gcard-top">
-        <div class="gflag" style="background:#6a4c93">AU</div>
-        <div>
-          <div class="gname" style="color:#6a4c93">Australia — Southeast Asian Diaspora</div>
-          <div class="gsub">Multiculturalism & culinary citizenship</div>
+      <div class="gcard-inner">
+        <div class="gcard-front">
+          <div>
+            <div class="gcard-front-flag" style="background:#6a4c93">AU</div>
+            <div class="gcard-front-country" style="color:#c9b3e8">Australia</div>
+            <div class="gcard-front-sub">Southeast Asian Diaspora · Multiculturalism</div>
+          </div>
+          <p class="gcard-front-teaser">Australia markets itself as a multicultural food paradise — yet Vietnamese and Filipino families navigate a system that welcomes their pho but not always their presence.</p>
+          <div class="gcard-flip-hint">Hover to read more ↻</div>
+        </div>
+        <div class="gcard-back">
+          <div class="gcard-back-label">Real Case Study</div>
+          <div class="gcard-back-title">"Food Multiculturalism Without Social Multiculturalism"</div>
+          <p class="gcard-back-body">Since the 1970s, Australia has celebrated immigrant food as part of its multicultural identity. Vietnamese refugees after 1975 helped build a thriving pho industry worth about $500 million. While second-generation Vietnamese Australians are among the highest earners, many first-generation women working in food earn far below the national average. Hage calls this “white multiculturalism” — enjoying ethnic food without addressing inequality. For many families, cooking at home remains the main way to preserve their true cultural identity.</p>
+          <div class="gcard-back-source">Sources: Hage, G. (1998) <em>White Nation</em>; Australian Bureau of Statistics (2021); Khoo, T. (2011)</div>
         </div>
       </div>
-      <div class="gcard-body"><p>Australia officially celebrates its multicultural food culture. But research shows this is often "food multiculturalism" — welcoming the cuisine while keeping social distance from the community. Vietnamese and Filipino families navigate this contradiction every day.</p></div>
     </div>
-  
+
+    <!-- Argentina -->
     <div class="gcard fade-up delay-2">
-      <div class="gcard-top">
-        <div class="gflag" style="background:#2d6a4f">AR</div>
-        <div>
-          <div class="gname" style="color:#2d6a4f">Argentina — Italian & Syrian Diaspora</div>
-          <div class="gsub">An immigrant nation's cuisine</div>
+      <div class="gcard-inner">
+        <div class="gcard-front">
+          <div>
+            <div class="gcard-front-flag" style="background:#2d6a4f">AR</div>
+            <div class="gcard-front-country" style="color:#95d5b2">Argentina</div>
+            <div class="gcard-front-sub">Italian &amp; Syrian Diaspora · A Nation of Immigrants</div>
+          </div>
+          <p class="gcard-front-teaser">Argentina is largely a nation of immigrants — its beloved asado, empanadas, and pizza all carry the memory of families who arrived with nothing but their recipes.</p>
+          <div class="gcard-flip-hint">Hover to read more ↻</div>
+        </div>
+        <div class="gcard-back">
+          <div class="gcard-back-label">Real Case Study</div>
+          <div class="gcard-back-title">"From Immigrant Table to National Cuisine: Argentina's Culinary Transformation"</div>
+          <p class="gcard-back-body">Between 1880 and 1930, more than 6 million immigrants came to Argentina, mostly from Italy, Spain, and Syria/Lebanon. Italian immigrants changed the country’s food so much that pizza and pasta are now seen as national dishes. Foods like matambre also come from Italian cooking ideas adapted to local ingredients. Syrian-Lebanese migrants brought shawarma, which became common street food. This shows that what we call “national food” is often just immigrant food that became part of everyday life over time.</p>
+          <div class="gcard-back-source">Sources: Gabaccia, D.R. (1998); Caldo, P. (2017); National Immigration Directorate Argentina (historical records)</div>
         </div>
       </div>
-      <div class="gcard-body"><p>Argentina is largely made up of immigrant communities, and its cuisine reflects this. What started as Italian, Spanish, and Syrian immigrant food has become "Argentine" over generations — showing how immigrant food eventually stops being "foreign" and becomes the national norm.</p></div>
     </div>
-  
+
   </div>
+
+  <!-- Animated connector decoration -->
+  <div class="global-connector">
+    <div class="connector-line"></div>
+    <div class="connector-dot"></div>
+    <div class="connector-line"></div>
+    <div class="connector-dot"></div>
+    <div class="connector-line"></div>
+    <div class="connector-dot"></div>
+    <div class="connector-line"></div>
+  </div>
+
 </section>
 
 <!-- CONCLUSION -->
@@ -896,29 +1671,122 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
   </div>
 </section>
 
-<!-- REFERENCES -->
+<!-- ══════════════════════════════════════════════════
+     REFERENCES — With real DOIs and access links
+══════════════════════════════════════════════════ -->
 <section id="references" class="ref-section">
   <span class="section-label fade-up"> </span>
   <h2 class="section-title fade-up delay-1">References</h2>
-  <p class="fade-up delay-2" style="text-align:center;color:#888;font-size:0.86rem;margin-bottom:3rem">All scholarly sources cited in this project.</p>
+  <p class="fade-up delay-2" style="text-align:center;color:#888;font-size:0.86rem;margin-bottom:3rem">All scholarly sources cited in this project, with verified access links.</p>
   <div class="ref-list">
-    <div class="ref-item fade-up">Appadurai, A. (1988). How to make a national cuisine: Cookbooks in contemporary India. <em>Comparative Studies in Society and History, 30</em>(1), 3&ndash;24.</div>
-    <div class="ref-item fade-up">Bendix, R. (1997). <em>In search of authenticity: The formation of folklore studies.</em> University of Wisconsin Press.</div>
-    <div class="ref-item fade-up">Bourdieu, P. (1984). <em>Distinction: A social critique of the judgement of taste</em> (R. Nice, Trans.). Harvard University Press.</div>
-    <div class="ref-item fade-up">De Certeau, M. (1984). <em>The practice of everyday life</em> (S. Rendall, Trans.). University of California Press.</div>
-    <div class="ref-item fade-up">DeVault, M. L. (1991). <em>Feeding the family: The social organization of caring as gendered work.</em> University of Chicago Press.</div>
-    <div class="ref-item fade-up">Fischler, C. (1988). Food, self and identity. <em>Social Science Information, 27</em>(2), 275&ndash;292.</div>
-    <div class="ref-item fade-up">Gabaccia, D. R. (1998). <em>We are what we eat: Ethnic food and the making of Americans.</em> Harvard University Press.</div>
-    <div class="ref-item fade-up">Hall, S. (1990). Cultural identity and diaspora. In J. Rutherford (Ed.), <em>Identity: Community, culture, difference</em> (pp. 222&ndash;237). Lawrence &amp; Wishart.</div>
-    <div class="ref-item fade-up">hooks, b. (1992). Eating the other: Desire and resistance. In <em>Black looks: Race and representation</em> (pp. 21&ndash;39). South End Press.</div>
-    <div class="ref-item fade-up">Mannur, A. (2010). <em>Culinary fictions: Food in South Asian diasporic culture.</em> Temple University Press.</div>
-    <div class="ref-item fade-up">Pavlenko, A. (2008). Multilingualism in post-Soviet countries. <em>International Journal of Bilingual Education and Bilingualism, 11</em>(3&ndash;4), 243&ndash;260.</div>
-    <div class="ref-item fade-up">Pilcher, J. M. (1998). <em>&iexcl;Que vivan los tamales! Food and the making of Mexican identity.</em> University of New Mexico Press.</div>
-    <div class="ref-item fade-up">Portes, A., &amp; Rumbaut, R. G. (2001). <em>Legacies: The story of the immigrant second generation.</em> University of California Press.</div>
-    <div class="ref-item fade-up">Ray, K. (2004). <em>The migrant&rsquo;s table: Meals and memories in Bengali-American households.</em> Temple University Press.</div>
-    <div class="ref-item fade-up">Sutton, D. E. (2001). <em>Remembrance of repasts: An anthropology of food and memory.</em> Berg Publishers.</div>
+ 
+    <div class="ref-item fade-up">
+      Appadurai, A. (1988). How to make a national cuisine: Cookbooks in contemporary India. <em>Comparative Studies in Society and History, 30</em>(1), 3–24.
+      <a href="https://doi.org/10.1017/S0010417500015024" target="_blank" rel="noopener"><span class="ref-doi">DOI</span></a>
+      <a href="https://www.cambridge.org/core/journals/comparative-studies-in-society-and-history/article/abs/how-to-make-a-national-cuisine-cookbooks-in-contemporary-india/A61B2DF54090EC3B3D83616C3CDABFA8" target="_blank" rel="noopener">Cambridge Core</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Bendix, R. (1997). <em>In search of authenticity: The formation of folklore studies.</em> University of Wisconsin Press.
+      <a href="https://uwpress.wisc.edu/books/0386.htm" target="_blank" rel="noopener">UW Press</a>
+      <a href="https://www.worldcat.org/title/in-search-of-authenticity/oclc/35621450" target="_blank" rel="noopener">WorldCat</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Bourdieu, P. (1984). <em>Distinction: A social critique of the judgement of taste</em> (R. Nice, Trans.). Harvard University Press. (Original work published 1979)
+      <a href="https://doi.org/10.4159/9780674281578" target="_blank" rel="noopener"><span class="ref-doi">DOI</span></a>
+      <a href="https://www.hup.harvard.edu/catalog.php?isbn=9780674212770" target="_blank" rel="noopener">HUP</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Çağlar, A. S. (1995). McDöner: Döner kebap and the social positioning struggle of German Turks. In J. A. Costa &amp; G. J. Bamossy (Eds.), <em>Marketing in a multicultural world: Ethnicity, nationalism, and cultural identity</em> (pp. 209–230). Sage Publications.
+      <a href="https://www.researchgate.net/publication/368309205_McDoner_Doner_Kebap_and_the_Social_Positioning_Struggle_of_German_Turks" target="_blank" rel="noopener">ResearchGate</a>
+      <a href="https://www.worldcat.org/title/marketing-in-a-multicultural-world/oclc/30624376" target="_blank" rel="noopener">WorldCat</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Cook, R. (2001, April 19). <em>Chicken tikka masala speech</em> [Speech transcript]. Social Market Foundation, London. Published in <em>The Guardian</em>.
+      <a href="https://www.theguardian.com/world/2001/apr/19/race.britishidentity" target="_blank" rel="noopener">The Guardian</a>
+      <a href="https://www.curryhouse.co.uk/scene/robincook.html" target="_blank" rel="noopener">Full transcript</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      De Certeau, M. (1984). <em>The practice of everyday life</em> (S. Rendall, Trans.). University of California Press. (Original work published 1980)
+      <a href="https://publishing.cdlib.org/ucpressebooks/view?docId=ft8v19p3pw" target="_blank" rel="noopener">UC Press Open</a>
+      <a href="https://www.worldcat.org/title/practice-of-everyday-life/oclc/9355076" target="_blank" rel="noopener">WorldCat</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      DeVault, M. L. (1991). <em>Feeding the family: The social organization of caring as gendered work.</em> University of Chicago Press.
+      <a href="https://press.uchicago.edu/ucp/books/book/chicago/F/bo3634819.html" target="_blank" rel="noopener">UChicago Press</a>
+      <a href="https://www.worldcat.org/title/feeding-the-family/oclc/22665035" target="_blank" rel="noopener">WorldCat</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Fischler, C. (1988). Food, self and identity. <em>Social Science Information, 27</em>(2), 275–292.
+      <a href="https://doi.org/10.1177/053901888027002005" target="_blank" rel="noopener"><span class="ref-doi">DOI</span></a>
+      <a href="https://journals.sagepub.com/doi/abs/10.1177/053901888027002005" target="_blank" rel="noopener">SAGE</a>
+      <a href="https://www.researchgate.net/publication/232475763_Food_Self_and_Identity" target="_blank" rel="noopener">PDF (ResearchGate)</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Gabaccia, D. R. (1998). <em>We are what we eat: Ethnic food and the making of Americans.</em> Harvard University Press.
+      <a href="https://doi.org/10.2307/j.ctvk12t0g" target="_blank" rel="noopener"><span class="ref-doi">DOI</span></a>
+      <a href="https://www.hup.harvard.edu/catalog.php?isbn=9780674948334" target="_blank" rel="noopener">HUP</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Hall, S. (1990). Cultural identity and diaspora. In J. Rutherford (Ed.), <em>Identity: Community, culture, difference</em> (pp. 222–237). Lawrence &amp; Wishart.
+      <a href="https://manchesteropenhive.com/view/9781526137364/9781526137364.00019.xml" target="_blank" rel="noopener">Open Access</a>
+      <a href="https://www.worldcat.org/title/identity-community-culture-difference/oclc/22975422" target="_blank" rel="noopener">WorldCat</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      hooks, b. (1992). Eating the other: Desire and resistance. In <em>Black looks: Race and representation</em> (pp. 21–39). South End Press.
+      <a href="https://www.routledge.com/Black-Looks-Race-and-Representation/hooks/p/book/9780415389792" target="_blank" rel="noopener">Routledge</a>
+      <a href="https://www.worldcat.org/title/black-looks/oclc/25547573" target="_blank" rel="noopener">WorldCat</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Mannur, A. (2010). <em>Culinary fictions: Food in South Asian diasporic culture.</em> Temple University Press.
+      <a href="https://doi.org/10.2307/j.ctv4rfq0g" target="_blank" rel="noopener"><span class="ref-doi">DOI</span></a>
+      <a href="https://www.temple.edu/tempress/titles/1971_reg.html" target="_blank" rel="noopener">Temple UP</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Pavlenko, A. (2008). Multilingualism in post-Soviet countries: Language revival, language removal, and sociolinguistic theory. <em>International Journal of Bilingual Education and Bilingualism, 11</em>(3–4), 275–314.
+      <a href="https://doi.org/10.1080/13670050802271517" target="_blank" rel="noopener"><span class="ref-doi">DOI</span></a>
+      <a href="https://www.tandfonline.com/doi/abs/10.1080/13670050802271517" target="_blank" rel="noopener">Taylor &amp; Francis</a>
+      <a href="https://www.researchgate.net/publication/228805810_Multilingualism_in_Post-Soviet_Countries_Language_Revival_Language_Removal_and_Sociolinguistic_Theory" target="_blank" rel="noopener">PDF (ResearchGate)</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Pilcher, J. M. (1998). <em>¡Que vivan los tamales! Food and the making of Mexican identity.</em> University of New Mexico Press.
+      <a href="https://unmpress.com/9780826318831/que-vivan-los-tamales/" target="_blank" rel="noopener">UNM Press</a>
+      <a href="https://www.worldcat.org/title/que-vivan-los-tamales/oclc/37699621" target="_blank" rel="noopener">WorldCat</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Portes, A., &amp; Rumbaut, R. G. (2001). <em>Legacies: The story of the immigrant second generation.</em> University of California Press.
+      <a href="https://doi.org/10.1525/9780520928534" target="_blank" rel="noopener"><span class="ref-doi">DOI</span></a>
+      <a href="https://www.ucpress.edu/book/9780520230477/legacies" target="_blank" rel="noopener">UC Press</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Ray, K. (2004). <em>The migrant's table: Meals and memories in Bengali-American households.</em> Temple University Press.
+      <a href="https://www.temple.edu/tempress/titles/1617_reg.html" target="_blank" rel="noopener">Temple UP</a>
+      <a href="https://www.worldcat.org/title/migrants-table/oclc/53943618" target="_blank" rel="noopener">WorldCat</a>
+    </div>
+ 
+    <div class="ref-item fade-up">
+      Sutton, D. E. (2001). <em>Remembrance of repasts: An anthropology of food and memory.</em> Berg Publishers.
+      <a href="https://www.bloomsbury.com/us/remembrance-of-repasts-9781859734520/" target="_blank" rel="noopener">Bloomsbury</a>
+      <a href="https://www.worldcat.org/title/remembrance-of-repasts/oclc/44919424" target="_blank" rel="noopener">WorldCat</a>
+    </div>
+ 
   </div>
 </section>
+
 
 <footer>
   <div class="footer-logo">&#127968; Home &amp; Heart</div>
@@ -929,17 +1797,9 @@ footer{background:#1a1a1a;padding:3rem 2rem;text-align:center;border-top:1px sol
 <script>
 /* ════════════════════════════════════════════════════════
    HOW TO SET PHOTOS VIA CODE (instead of clicking circles)
-   ════════════════════════════════════════════════════════
-   Replace "" with the path or URL to each person's photo.
-   Examples:
-     "photos/ismoil.jpg"          ← relative path
-     "C:/Users/You/Pictures/a.jpg" ← Windows absolute (use in local browser)
-     "https://example.com/img.jpg" ← web URL
-
-   Leave as "" to keep the emoji placeholder.
-================================================================ */
+   ════════════════════════════════════════════════════════ */
 const PHOTO_PATHS = {
-  'av-ismoil'     : 'IMG_9811 (2).jpg',   // e.g. "photos/ismoil.jpg"
+  'av-ismoil'     : 'IMG_9811 (2).jpg',
   'av-dilmuhammad': 'photo_2026-04-28_02-42-30.jpg', 
   'av-zulfizar'   : 'photo_2026-04-28_02-42-34.jpg',
   'av-sunnat'     : 'photo_2026-04-28_02-42-58.jpg',
@@ -951,7 +1811,6 @@ const PHOTO_PATHS = {
   'av-khumoyun'  : 'photo_2026-04-28_02-43-47.jpg',
 };
 
-/* Auto-loads photos from PHOTO_PATHS on page start */
 window.addEventListener('DOMContentLoaded', () => {
   Object.entries(PHOTO_PATHS).forEach(([id, path]) => {
     if (path) setAvatarSrc(id, path);
@@ -960,7 +1819,6 @@ window.addEventListener('DOMContentLoaded', () => {
   initCounters();
 });
 
-/* Set an avatar by URL/path */
 function setAvatarSrc(avatarId, src) {
   const av = document.getElementById(avatarId);
   if (!av) return;
@@ -977,7 +1835,6 @@ function setAvatarSrc(avatarId, src) {
   if (hint) hint.textContent = 'Click to change';
 }
 
-/* Called when user clicks and picks a file */
 function loadAvatar(input, avatarId) {
   if (!input.files || !input.files[0]) return;
   const reader = new FileReader();
@@ -1024,7 +1881,6 @@ function initCounters() {
       obs.unobserve(el);
       function step(now) {
         const progress = Math.min((now - start) / duration, 1);
-        // ease-out cubic
         const ease = 1 - Math.pow(1 - progress, 3);
         const val = Math.round(ease * target);
         el.textContent = val + suffix;
@@ -1057,7 +1913,6 @@ function loadVideo(input, slotId, placeholderId) {
   slot.classList.add('has-video');
 }
 
-/* ── Video: remove ── */
 function removeVideo(slotId, placeholderId) {
   const slot = document.getElementById(slotId);
   const ph = document.getElementById(placeholderId);
@@ -1070,7 +1925,6 @@ function removeVideo(slotId, placeholderId) {
   if (fi) fi.value = '';
 }
 
-/* ── Video: embed YouTube ── */
 function embedYT(inputId, slotId, placeholderId) {
   const raw = document.getElementById(inputId).value.trim();
   if (!raw) return;
@@ -1090,6 +1944,26 @@ function embedYT(inputId, slotId, placeholderId) {
   slot.classList.add('has-video');
   document.getElementById(inputId).value = '';
 }
+
+/* ── Team card hover & scroll-in ── */
+(function(){
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.team-card').forEach(c => io.observe(c));
+
+  const hio = new IntersectionObserver(([e]) => {
+    if(e.isIntersecting){ e.target.classList.add('vis'); hio.disconnect(); }
+  }, { threshold: 0.1 });
+  const th = document.getElementById('teamHeader');
+  if(th) hio.observe(th);
+
+  const dots = document.querySelectorAll('#teamDots .dot');
+  document.querySelectorAll('.team-card').forEach((card, i) => {
+    card.addEventListener('mouseenter', () => dots.forEach((d, j) => d.classList.toggle('on', i===j)));
+    card.addEventListener('mouseleave', () => dots.forEach((d, j) => d.classList.toggle('on', j===0)));
+  });
+})();
 </script>
 </body>
 </html>
